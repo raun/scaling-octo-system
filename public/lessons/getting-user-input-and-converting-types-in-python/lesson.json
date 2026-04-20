@@ -1,0 +1,401 @@
+{
+  "version": 1,
+  "id": "getting-user-input-and-converting-types-in-python",
+  "title": "Getting User Input and Converting Types in Python",
+  "language": "python",
+  "totalDuration": 434.68,
+  "sections": [
+    {
+      "id": "section-1",
+      "label": "Your First input()",
+      "startTime": 0,
+      "endTime": 62.58,
+      "narration": "Let's start by asking the user for their name using Python's built-in `input()` function. On line 1, we pass a prompt string to `input()` — that's the text the user sees before they type — and whatever they type back gets stored in the `name` variable. Then on line 2, we greet them by printing that value. As you can see in the terminal, the program pauses, waits for the user to type, and then responds.",
+      "events": [
+        {
+          "t": 1,
+          "type": "file_create",
+          "path": "greet.py",
+          "content": "name = input('What is your name? ')\n"
+        },
+        {
+          "t": 40.68,
+          "type": "edit",
+          "path": "greet.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 2,
+                "startCol": 1,
+                "endLine": 2,
+                "endCol": 1
+              },
+              "text": "print('Hello,', name)\n"
+            }
+          ]
+        },
+        {
+          "t": 40.68,
+          "type": "terminal_input",
+          "command": "python3 greet.py"
+        },
+        {
+          "t": 42.18,
+          "type": "terminal_output",
+          "output": "What is your name? Alice\nHello, Alice\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "greet.py": "name = input('What is your name? ')\nprint('Hello,', name)\n"
+        },
+        "terminalHistory": "$ python3 greet.py\nWhat is your name? Alice\nHello, Alice\n"
+      }
+    },
+    {
+      "id": "section-2",
+      "label": "The Gotcha: Two Ways Math Can Break",
+      "startTime": 63.08,
+      "endTime": 142.28,
+      "narration": "Watch what happens when we try to do math with what the user typed. On line 2, we add `num` and the number 10 — and Python throws a TypeError, because it sees `num` as text, not a number. Even more surprising: when we change the 10 to a string `'10'` on line 2, Python doesn't crash — it just glues the two strings together and prints `510` instead of `15`. This is a classic gotcha that trips up beginners, and it all comes down to understanding what type `input()` gives you.",
+      "events": [
+        {
+          "t": 64.08,
+          "type": "file_create",
+          "path": "broken_math.py",
+          "content": "num = input('Enter a number: ')\nprint(num + 10)\n"
+        },
+        {
+          "t": 114.56,
+          "type": "edit",
+          "path": "broken_math.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 2,
+                "startCol": 1,
+                "endLine": 2,
+                "endCol": 16
+              },
+              "text": "print(num + '10')"
+            }
+          ]
+        },
+        {
+          "t": 114.56,
+          "type": "terminal_input",
+          "command": "python3 broken_math.py"
+        },
+        {
+          "t": 116.06,
+          "type": "terminal_output",
+          "output": "Enter a number: 5\n\nTraceback (most recent call last):\n  File \"/private/var/folders/29/r9jfxpdd1ml0l1njxt6mnx7w0000gn/T/lesson-validate-uWJpa8/_validate_wrapper.py\", line 53, in <module>\n    exec(_code)\n  File \"<string>\", line 2, in <module>\nTypeError: can only concatenate str (not \"int\") to str\n"
+        },
+        {
+          "t": 141.28,
+          "type": "terminal_input",
+          "command": "python3 broken_math.py"
+        },
+        {
+          "t": 141.78,
+          "type": "terminal_output",
+          "output": "Enter a number: 5\n510\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "greet.py": "name = input('What is your name? ')\nprint('Hello,', name)\n",
+          "broken_math.py": "num = input('Enter a number: ')\nprint(num + '10')\n"
+        },
+        "terminalHistory": "$ python3 greet.py\nWhat is your name? Alice\nHello, Alice\n$ python3 broken_math.py\nEnter a number: 5\n\nTraceback (most recent call last):\n  File \"/private/var/folders/29/r9jfxpdd1ml0l1njxt6mnx7w0000gn/T/lesson-validate-uWJpa8/_validate_wrapper.py\", line 53, in <module>\n    exec(_code)\n  File \"<string>\", line 2, in <module>\nTypeError: can only concatenate str (not \"int\") to str\n$ python3 broken_math.py\nEnter a number: 5\n510\n"
+      }
+    },
+    {
+      "id": "section-3",
+      "label": "input() Always Returns a String",
+      "startTime": 142.78,
+      "endTime": 203.5,
+      "narration": "The root cause of those problems is this: `input()` always returns a string, no matter what the user types. Even if someone types a number like 25, Python hands it back to you as text. We can prove this on line 2 by using the built-in `type()` function — and sure enough, the output shows `<class 'str'>`, confirming it's a string. This is the key insight you need before we can fix the math.",
+      "events": [
+        {
+          "t": 143.78,
+          "type": "file_create",
+          "path": "type_check.py",
+          "content": "age = input('How old are you? ')\n"
+        },
+        {
+          "t": 182.25,
+          "type": "edit",
+          "path": "type_check.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 2,
+                "startCol": 1,
+                "endLine": 2,
+                "endCol": 1
+              },
+              "text": "print(age, type(age))\n"
+            }
+          ]
+        },
+        {
+          "t": 182.25,
+          "type": "terminal_input",
+          "command": "python3 type_check.py"
+        },
+        {
+          "t": 183.75,
+          "type": "terminal_output",
+          "output": "How old are you? 25\n25 <class 'str'>\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "greet.py": "name = input('What is your name? ')\nprint('Hello,', name)\n",
+          "broken_math.py": "num = input('Enter a number: ')\nprint(num + '10')\n",
+          "type_check.py": "age = input('How old are you? ')\nprint(age, type(age))\n"
+        },
+        "terminalHistory": "$ python3 greet.py\nWhat is your name? Alice\nHello, Alice\n$ python3 broken_math.py\nEnter a number: 5\n\nTraceback (most recent call last):\n  File \"/private/var/folders/29/r9jfxpdd1ml0l1njxt6mnx7w0000gn/T/lesson-validate-uWJpa8/_validate_wrapper.py\", line 53, in <module>\n    exec(_code)\n  File \"<string>\", line 2, in <module>\nTypeError: can only concatenate str (not \"int\") to str\n$ python3 broken_math.py\nEnter a number: 5\n510\n$ python3 type_check.py\nHow old are you? 25\n25 <class 'str'>\n"
+      }
+    },
+    {
+      "id": "section-4",
+      "label": "Converting a String to an Integer with int()",
+      "startTime": 204,
+      "endTime": 278.64,
+      "narration": "The fix is to wrap the `input()` call with `int()`, which converts the string to a whole number right as we receive it — that's what we do on line 1. Now `type(age)` shows `<class 'int'>`, and on lines 3 and 4 we can safely do real arithmetic, like adding 1 to get next year's age. But be careful — if the user types something like `hello` instead of a number, `int()` can't make sense of it and will raise a `ValueError`, so the input really must look like a whole number.",
+      "events": [
+        {
+          "t": 205,
+          "type": "edit",
+          "path": "type_check.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 1,
+                "endCol": 33
+              },
+              "text": "age = int(input('How old are you? '))"
+            }
+          ]
+        },
+        {
+          "t": 252.52,
+          "type": "edit",
+          "path": "type_check.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 3,
+                "startCol": 1,
+                "endLine": 3,
+                "endCol": 1
+              },
+              "text": "next_birthday = age + 1\nprint('Next year you will be', next_birthday)\n"
+            }
+          ]
+        },
+        {
+          "t": 252.52,
+          "type": "terminal_input",
+          "command": "python3 type_check.py"
+        },
+        {
+          "t": 254.02,
+          "type": "terminal_output",
+          "output": "How old are you? 25\n25 <class 'int'>\n"
+        },
+        {
+          "t": 265.33,
+          "type": "terminal_input",
+          "command": "python3 type_check.py"
+        },
+        {
+          "t": 266.83,
+          "type": "terminal_output",
+          "output": "How old are you? 25\n25 <class 'int'>\nNext year you will be 26\n"
+        },
+        {
+          "t": 277.64,
+          "type": "terminal_input",
+          "command": "python3 type_check.py"
+        },
+        {
+          "t": 278.14,
+          "type": "terminal_output",
+          "output": "How old are you? hello\n\nTraceback (most recent call last):\n  File \"/private/var/folders/29/r9jfxpdd1ml0l1njxt6mnx7w0000gn/T/lesson-validate-ZzXkGv/_validate_wrapper.py\", line 53, in <module>\n    exec(_code)\n  File \"<string>\", line 1, in <module>\nValueError: invalid literal for int() with base 10: 'hello'\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "greet.py": "name = input('What is your name? ')\nprint('Hello,', name)\n",
+          "broken_math.py": "num = input('Enter a number: ')\nprint(num + '10')\n",
+          "type_check.py": "age = int(input('How old are you? '))\nprint(age, type(age))\nnext_birthday = age + 1\nprint('Next year you will be', next_birthday)\n"
+        },
+        "terminalHistory": "$ python3 greet.py\nWhat is your name? Alice\nHello, Alice\n$ python3 broken_math.py\nEnter a number: 5\n\nTraceback (most recent call last):\n  File \"/private/var/folders/29/r9jfxpdd1ml0l1njxt6mnx7w0000gn/T/lesson-validate-uWJpa8/_validate_wrapper.py\", line 53, in <module>\n    exec(_code)\n  File \"<string>\", line 2, in <module>\nTypeError: can only concatenate str (not \"int\") to str\n$ python3 broken_math.py\nEnter a number: 5\n510\n$ python3 type_check.py\nHow old are you? 25\n25 <class 'str'>\n$ python3 type_check.py\nHow old are you? 25\n25 <class 'int'>\n$ python3 type_check.py\nHow old are you? 25\n25 <class 'int'>\nNext year you will be 26\n$ python3 type_check.py\nHow old are you? hello\n\nTraceback (most recent call last):\n  File \"/private/var/folders/29/r9jfxpdd1ml0l1njxt6mnx7w0000gn/T/lesson-validate-ZzXkGv/_validate_wrapper.py\", line 53, in <module>\n    exec(_code)\n  File \"<string>\", line 1, in <module>\nValueError: invalid literal for int() with base 10: 'hello'\n"
+      }
+    },
+    {
+      "id": "section-5",
+      "label": "Converting to a Float with float()",
+      "startTime": 279.14,
+      "endTime": 351.62,
+      "narration": "When you need decimal numbers — like a price — `int()` won't cut it, so we use `float()` instead on line 1. This lets us work with values like `19.99` and do multiplication and addition on lines 2 and 3. You might notice the tax result has a long string of decimals; that's normal floating-point behavior in computers, not a bug in your code. And just like `int()`, `float()` will raise a `ValueError` if the user types something that isn't a number.",
+      "events": [
+        {
+          "t": 280.14,
+          "type": "file_create",
+          "path": "price.py",
+          "content": "price = float(input('Enter a price: '))\n"
+        },
+        {
+          "t": 303.2,
+          "type": "edit",
+          "path": "price.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 2,
+                "startCol": 1,
+                "endLine": 2,
+                "endCol": 1
+              },
+              "text": "tax = price * 0.08\ntotal = price + tax\n"
+            }
+          ]
+        },
+        {
+          "t": 326.25,
+          "type": "edit",
+          "path": "price.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 4,
+                "startCol": 1,
+                "endLine": 4,
+                "endCol": 1
+              },
+              "text": "print('Price:', price)\nprint('Tax:', tax)\nprint('Total:', total)\n"
+            }
+          ]
+        },
+        {
+          "t": 326.25,
+          "type": "terminal_input",
+          "command": "python3 price.py"
+        },
+        {
+          "t": 327.75,
+          "type": "terminal_output",
+          "output": "Enter a price: 19.99\nPrice: 19.99\nTax: 1.5992\nTotal: 21.589199999999998\n"
+        },
+        {
+          "t": 350.62,
+          "type": "terminal_input",
+          "command": "python3 price.py"
+        },
+        {
+          "t": 351.12,
+          "type": "terminal_output",
+          "output": "Enter a price: hello\n\nTraceback (most recent call last):\n  File \"/private/var/folders/29/r9jfxpdd1ml0l1njxt6mnx7w0000gn/T/lesson-validate-pX72R9/_validate_wrapper.py\", line 53, in <module>\n    exec(_code)\n  File \"<string>\", line 1, in <module>\nValueError: could not convert string to float: 'hello'\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "greet.py": "name = input('What is your name? ')\nprint('Hello,', name)\n",
+          "broken_math.py": "num = input('Enter a number: ')\nprint(num + '10')\n",
+          "type_check.py": "age = int(input('How old are you? '))\nprint(age, type(age))\nnext_birthday = age + 1\nprint('Next year you will be', next_birthday)\n",
+          "price.py": "price = float(input('Enter a price: '))\ntax = price * 0.08\ntotal = price + tax\nprint('Price:', price)\nprint('Tax:', tax)\nprint('Total:', total)\n"
+        },
+        "terminalHistory": "$ python3 greet.py\nWhat is your name? Alice\nHello, Alice\n$ python3 broken_math.py\nEnter a number: 5\n\nTraceback (most recent call last):\n  File \"/private/var/folders/29/r9jfxpdd1ml0l1njxt6mnx7w0000gn/T/lesson-validate-uWJpa8/_validate_wrapper.py\", line 53, in <module>\n    exec(_code)\n  File \"<string>\", line 2, in <module>\nTypeError: can only concatenate str (not \"int\") to str\n$ python3 broken_math.py\nEnter a number: 5\n510\n$ python3 type_check.py\nHow old are you? 25\n25 <class 'str'>\n$ python3 type_check.py\nHow old are you? 25\n25 <class 'int'>\n$ python3 type_check.py\nHow old are you? 25\n25 <class 'int'>\nNext year you will be 26\n$ python3 type_check.py\nHow old are you? hello\n\nTraceback (most recent call last):\n  File \"/private/var/folders/29/r9jfxpdd1ml0l1njxt6mnx7w0000gn/T/lesson-validate-ZzXkGv/_validate_wrapper.py\", line 53, in <module>\n    exec(_code)\n  File \"<string>\", line 1, in <module>\nValueError: invalid literal for int() with base 10: 'hello'\n$ python3 price.py\nEnter a price: 19.99\nPrice: 19.99\nTax: 1.5992\nTotal: 21.589199999999998\n$ python3 price.py\nEnter a price: hello\n\nTraceback (most recent call last):\n  File \"/private/var/folders/29/r9jfxpdd1ml0l1njxt6mnx7w0000gn/T/lesson-validate-pX72R9/_validate_wrapper.py\", line 53, in <module>\n    exec(_code)\n  File \"<string>\", line 1, in <module>\nValueError: could not convert string to float: 'hello'\n"
+      }
+    },
+    {
+      "id": "section-6",
+      "label": "Putting It Together: Age Calculator",
+      "startTime": 352.12,
+      "endTime": 434.68,
+      "narration": "Now let's bring everything together and build the age calculator we've been working toward. On line 1 we collect the user's birth year and immediately convert it to an integer, on line 2 we set the current year as a fixed value, and on line 3 we subtract to get the approximate age — simple arithmetic that only works because we did the conversion upfront. In this lesson you learned that `input()` always returns a string, and that you need `int()` or `float()` to turn that string into a number you can actually compute with.",
+      "events": [
+        {
+          "t": 353.12,
+          "type": "file_create",
+          "path": "age_calculator.py",
+          "content": "birth_year = int(input('What year were you born? '))\n"
+        },
+        {
+          "t": 370.67,
+          "type": "edit",
+          "path": "age_calculator.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 2,
+                "startCol": 1,
+                "endLine": 2,
+                "endCol": 1
+              },
+              "text": "current_year = 2025  # Update this each year\n"
+            }
+          ]
+        },
+        {
+          "t": 388.23,
+          "type": "edit",
+          "path": "age_calculator.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 3,
+                "startCol": 1,
+                "endLine": 3,
+                "endCol": 1
+              },
+              "text": "age = current_year - birth_year\n"
+            }
+          ]
+        },
+        {
+          "t": 405.78,
+          "type": "edit",
+          "path": "age_calculator.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 4,
+                "startCol": 1,
+                "endLine": 4,
+                "endCol": 1
+              },
+              "text": "print('You are approximately', age, 'years old.')\n"
+            }
+          ]
+        },
+        {
+          "t": 405.78,
+          "type": "terminal_input",
+          "command": "python3 age_calculator.py"
+        },
+        {
+          "t": 407.28,
+          "type": "terminal_output",
+          "output": "What year were you born? 1990\nYou are approximately 35 years old.\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "greet.py": "name = input('What is your name? ')\nprint('Hello,', name)\n",
+          "broken_math.py": "num = input('Enter a number: ')\nprint(num + '10')\n",
+          "type_check.py": "age = int(input('How old are you? '))\nprint(age, type(age))\nnext_birthday = age + 1\nprint('Next year you will be', next_birthday)\n",
+          "price.py": "price = float(input('Enter a price: '))\ntax = price * 0.08\ntotal = price + tax\nprint('Price:', price)\nprint('Tax:', tax)\nprint('Total:', total)\n",
+          "age_calculator.py": "birth_year = int(input('What year were you born? '))\ncurrent_year = 2025  # Update this each year\nage = current_year - birth_year\nprint('You are approximately', age, 'years old.')\n"
+        },
+        "terminalHistory": "$ python3 greet.py\nWhat is your name? Alice\nHello, Alice\n$ python3 broken_math.py\nEnter a number: 5\n\nTraceback (most recent call last):\n  File \"/private/var/folders/29/r9jfxpdd1ml0l1njxt6mnx7w0000gn/T/lesson-validate-uWJpa8/_validate_wrapper.py\", line 53, in <module>\n    exec(_code)\n  File \"<string>\", line 2, in <module>\nTypeError: can only concatenate str (not \"int\") to str\n$ python3 broken_math.py\nEnter a number: 5\n510\n$ python3 type_check.py\nHow old are you? 25\n25 <class 'str'>\n$ python3 type_check.py\nHow old are you? 25\n25 <class 'int'>\n$ python3 type_check.py\nHow old are you? 25\n25 <class 'int'>\nNext year you will be 26\n$ python3 type_check.py\nHow old are you? hello\n\nTraceback (most recent call last):\n  File \"/private/var/folders/29/r9jfxpdd1ml0l1njxt6mnx7w0000gn/T/lesson-validate-ZzXkGv/_validate_wrapper.py\", line 53, in <module>\n    exec(_code)\n  File \"<string>\", line 1, in <module>\nValueError: invalid literal for int() with base 10: 'hello'\n$ python3 price.py\nEnter a price: 19.99\nPrice: 19.99\nTax: 1.5992\nTotal: 21.589199999999998\n$ python3 price.py\nEnter a price: hello\n\nTraceback (most recent call last):\n  File \"/private/var/folders/29/r9jfxpdd1ml0l1njxt6mnx7w0000gn/T/lesson-validate-pX72R9/_validate_wrapper.py\", line 53, in <module>\n    exec(_code)\n  File \"<string>\", line 1, in <module>\nValueError: could not convert string to float: 'hello'\n$ python3 age_calculator.py\nWhat year were you born? 1990\nYou are approximately 35 years old.\n"
+      }
+    }
+  ]
+}

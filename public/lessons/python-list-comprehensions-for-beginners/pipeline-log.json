@@ -1,0 +1,93 @@
+{
+  "runId": "d79c8d59-8f87-41aa-bc1e-f47d4180fbce",
+  "topic": "Python list comprehensions",
+  "options": {
+    "language": "python",
+    "difficulty": "beginner",
+    "targetDuration": 5
+  },
+  "startedAt": "2026-04-17T14:14:26.248Z",
+  "status": "completed",
+  "steps": [
+    {
+      "agent": "Planner",
+      "action": "generate",
+      "round": 1,
+      "startedAt": "2026-04-17T14:14:26.248Z",
+      "completedAt": "2026-04-17T14:14:51.317Z"
+    },
+    {
+      "agent": "PlanReviewer",
+      "action": "review",
+      "round": 1,
+      "startedAt": "2026-04-17T14:14:51.317Z",
+      "approved": true,
+      "completedAt": "2026-04-17T14:15:19.132Z"
+    },
+    {
+      "agent": "Scripter",
+      "action": "generate",
+      "round": 1,
+      "startedAt": "2026-04-17T14:15:19.132Z",
+      "completedAt": "2026-04-17T14:15:53.808Z"
+    },
+    {
+      "agent": "ScriptReviewer",
+      "action": "review",
+      "round": 1,
+      "startedAt": "2026-04-17T14:15:53.808Z",
+      "approved": false,
+      "completedAt": "2026-04-17T14:16:18.784Z"
+    },
+    {
+      "agent": "Scripter",
+      "action": "revise",
+      "round": 2,
+      "startedAt": "2026-04-17T14:16:18.785Z",
+      "completedAt": "2026-04-17T14:16:54.250Z"
+    },
+    {
+      "agent": "ScriptReviewer",
+      "action": "review",
+      "round": 2,
+      "startedAt": "2026-04-17T14:16:54.250Z",
+      "approved": true,
+      "completedAt": "2026-04-17T14:17:06.992Z"
+    },
+    {
+      "agent": "Validator",
+      "action": "validateAll",
+      "round": 1,
+      "startedAt": "2026-04-17T14:17:06.993Z",
+      "completedAt": "2026-04-17T14:17:44.330Z"
+    },
+    {
+      "agent": "TTS",
+      "action": "generateAll",
+      "round": 1,
+      "startedAt": "2026-04-17T14:17:44.330Z",
+      "completedAt": "2026-04-17T14:18:27.810Z"
+    },
+    {
+      "agent": "Assembler",
+      "action": "assemble",
+      "round": 1,
+      "startedAt": "2026-04-17T14:18:27.810Z",
+      "completedAt": "2026-04-17T14:18:27.811Z"
+    },
+    {
+      "agent": "FinalReviewer",
+      "action": "review",
+      "round": 1,
+      "startedAt": "2026-04-17T14:18:27.811Z",
+      "approved": true,
+      "completedAt": "2026-04-17T14:18:47.078Z"
+    }
+  ],
+  "totalLLMCalls": 10,
+  "totalLLMTokens": {
+    "input": 0,
+    "output": 0
+  },
+  "completedAt": "2026-04-17T14:18:47.078Z"
+}

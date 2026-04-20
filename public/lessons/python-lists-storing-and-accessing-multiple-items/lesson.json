@@ -1,0 +1,389 @@
+{
+  "version": 1,
+  "id": "python-lists-storing-and-accessing-multiple-items",
+  "title": "Python Lists: Storing and Accessing Multiple Items",
+  "language": "python",
+  "totalDuration": 376.6,
+  "sections": [
+    {
+      "id": "section-1",
+      "label": "The Problem with Separate Variables",
+      "startTime": 0,
+      "endTime": 50.46,
+      "narration": "Let's start by looking at a problem you'd quickly run into without lists. If we want to store three fruits, we create three separate variables — fruit1, fruit2, and fruit3. This works for now, but imagine you had a hundred fruits. You'd need a hundred variables, and your code would become a mess fast. There has to be a better way.",
+      "events": [
+        {
+          "t": 1,
+          "type": "file_create",
+          "path": "lists.py",
+          "content": "fruit1 = 'apple'\n"
+        },
+        {
+          "t": 11.6,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 2,
+                "startCol": 1,
+                "endLine": 2,
+                "endCol": 1
+              },
+              "text": "fruit2 = 'banana'\n"
+            }
+          ]
+        },
+        {
+          "t": 22.2,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 3,
+                "startCol": 1,
+                "endLine": 3,
+                "endCol": 1
+              },
+              "text": "fruit3 = 'cherry'\n"
+            }
+          ]
+        },
+        {
+          "t": 32.8,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 5,
+                "startCol": 1,
+                "endLine": 5,
+                "endCol": 1
+              },
+              "text": "print(fruit1)\nprint(fruit2)\nprint(fruit3)\n"
+            }
+          ]
+        },
+        {
+          "t": 32.8,
+          "type": "terminal_input",
+          "command": "python3 lists.py"
+        },
+        {
+          "t": 34.3,
+          "type": "terminal_output",
+          "output": "apple\nbanana\ncherry\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "lists.py": "fruit1 = 'apple'\nfruit2 = 'banana'\nfruit3 = 'cherry'\n\nprint(fruit1)\nprint(fruit2)\nprint(fruit3)\n"
+        },
+        "terminalHistory": "$ python3 lists.py\napple\nbanana\ncherry\n"
+      }
+    },
+    {
+      "id": "section-2",
+      "label": "Creating Your First List",
+      "startTime": 50.96,
+      "endTime": 103.88,
+      "narration": "Now that we've seen the problem, let's meet the solution: the Python list. Instead of three separate variables, we store all three fruits inside a single pair of square brackets, separated by commas, and assign it to one variable called fruits. When we print the whole list, Python shows it back to us exactly as we wrote it — items and all.",
+      "events": [
+        {
+          "t": 51.96,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 7,
+                "endCol": 14
+              },
+              "text": "fruits = ['apple', 'banana', 'cherry']\n\nprint(fruits)"
+            }
+          ]
+        },
+        {
+          "t": 85.36,
+          "type": "terminal_input",
+          "command": "python3 lists.py"
+        },
+        {
+          "t": 86.86,
+          "type": "terminal_output",
+          "output": "['apple', 'banana', 'cherry']\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "lists.py": "fruits = ['apple', 'banana', 'cherry']\n\nprint(fruits)\n"
+        },
+        "terminalHistory": "$ python3 lists.py\napple\nbanana\ncherry\n$ python3 lists.py\n['apple', 'banana', 'cherry']\n"
+      }
+    },
+    {
+      "id": "section-3",
+      "label": "Accessing Items by Index",
+      "startTime": 104.38,
+      "endTime": 150.22,
+      "narration": "Storing items together is great, but we also need to pull out individual items when we need them. We do that using an index — a number inside square brackets that tells Python which position to grab. We access the first item, then the second, then the third, and each one prints out individually.",
+      "events": [
+        {
+          "t": 105.38,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 5,
+                "startCol": 1,
+                "endLine": 5,
+                "endCol": 1
+              },
+              "text": "print(fruits[0])\n"
+            }
+          ]
+        },
+        {
+          "t": 119.78,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 6,
+                "startCol": 1,
+                "endLine": 6,
+                "endCol": 1
+              },
+              "text": "print(fruits[1])\n"
+            }
+          ]
+        },
+        {
+          "t": 134.18,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 7,
+                "startCol": 1,
+                "endLine": 7,
+                "endCol": 1
+              },
+              "text": "print(fruits[2])\n"
+            }
+          ]
+        },
+        {
+          "t": 134.18,
+          "type": "terminal_input",
+          "command": "python3 lists.py"
+        },
+        {
+          "t": 135.68,
+          "type": "terminal_output",
+          "output": "['apple', 'banana', 'cherry']\napple\nbanana\ncherry\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "lists.py": "fruits = ['apple', 'banana', 'cherry']\n\nprint(fruits)\n\nprint(fruits[0])\nprint(fruits[1])\nprint(fruits[2])\n"
+        },
+        "terminalHistory": "$ python3 lists.py\napple\nbanana\ncherry\n$ python3 lists.py\n['apple', 'banana', 'cherry']\n$ python3 lists.py\n['apple', 'banana', 'cherry']\napple\nbanana\ncherry\n"
+      }
+    },
+    {
+      "id": "section-4",
+      "label": "The Gotcha: Lists Start at Zero",
+      "startTime": 150.72,
+      "endTime": 224.88,
+      "narration": "Here's a classic gotcha that trips up almost every beginner: Python counts positions starting at zero, not one. So a list with three items has positions 0, 1, and 2 — there is no position 3. To show this, we deliberately try to access index 3 — which doesn't exist — so you can see exactly what the error looks like. Watch what happens when we try: Python throws an IndexError telling us we've gone out of range. We then remove that line to get back to a working state.",
+      "events": [
+        {
+          "t": 151.72,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 5,
+                "startCol": 1,
+                "endLine": 5,
+                "endCol": 17
+              },
+              "text": "# Lists start at 0, not 1!\nprint(fruits[0])"
+            }
+          ]
+        },
+        {
+          "t": 198.92,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 9,
+                "startCol": 1,
+                "endLine": 9,
+                "endCol": 1
+              },
+              "text": "# print(fruits[3])  # IndexError: list index out of range\n"
+            }
+          ]
+        },
+        {
+          "t": 198.92,
+          "type": "terminal_input",
+          "command": "python3 lists.py"
+        },
+        {
+          "t": 200.42,
+          "type": "terminal_output",
+          "output": "['apple', 'banana', 'cherry']\napple\nbanana\ncherry\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "lists.py": "fruits = ['apple', 'banana', 'cherry']\n\nprint(fruits)\n\n# Lists start at 0, not 1!\nprint(fruits[0])\nprint(fruits[1])\nprint(fruits[2])\n# print(fruits[3])  # IndexError: list index out of range\n"
+        },
+        "terminalHistory": "$ python3 lists.py\napple\nbanana\ncherry\n$ python3 lists.py\n['apple', 'banana', 'cherry']\n$ python3 lists.py\n['apple', 'banana', 'cherry']\napple\nbanana\ncherry\n$ python3 lists.py\n['apple', 'banana', 'cherry']\napple\nbanana\ncherry\n"
+      }
+    },
+    {
+      "id": "section-5",
+      "label": "Negative Indexes: Counting from the End",
+      "startTime": 225.38,
+      "endTime": 293.24,
+      "narration": "Now that we know lists count from zero going forward, let's look at a handy trick for counting from the end. The earlier prints are still in the file so you can see everything running together — and at the bottom we add negative indexes. Index minus one always gives us the last item, minus two gives us the second to last, and so on. This is really useful when you don't know how long a list is but you still need to grab items from the back.",
+      "events": [
+        {
+          "t": 226.38,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 9,
+                "startCol": 1,
+                "endLine": 9,
+                "endCol": 58
+              },
+              "text": "\nprint(fruits[-1])"
+            }
+          ]
+        },
+        {
+          "t": 269.49,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 11,
+                "startCol": 1,
+                "endLine": 11,
+                "endCol": 1
+              },
+              "text": "print(fruits[-2])\n"
+            }
+          ]
+        },
+        {
+          "t": 269.49,
+          "type": "terminal_input",
+          "command": "python3 lists.py"
+        },
+        {
+          "t": 270.99,
+          "type": "terminal_output",
+          "output": "['apple', 'banana', 'cherry']\napple\nbanana\ncherry\ncherry\nbanana\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "lists.py": "fruits = ['apple', 'banana', 'cherry']\n\nprint(fruits)\n\n# Lists start at 0, not 1!\nprint(fruits[0])\nprint(fruits[1])\nprint(fruits[2])\n\nprint(fruits[-1])\nprint(fruits[-2])\n"
+        },
+        "terminalHistory": "$ python3 lists.py\napple\nbanana\ncherry\n$ python3 lists.py\n['apple', 'banana', 'cherry']\n$ python3 lists.py\n['apple', 'banana', 'cherry']\napple\nbanana\ncherry\n$ python3 lists.py\n['apple', 'banana', 'cherry']\napple\nbanana\ncherry\n$ python3 lists.py\n['apple', 'banana', 'cherry']\napple\nbanana\ncherry\ncherry\nbanana\n"
+      }
+    },
+    {
+      "id": "section-6",
+      "label": "Putting It Together: A Mini Contact List",
+      "startTime": 293.74,
+      "endTime": 376.6,
+      "narration": "Let's pull everything together with a real-world example, so we'll clear the file and start fresh with a mini contact list. Unlike the separate variables we started with, one list holds all four names and gives us flexible access by position — we use index zero to grab the first contact and index minus one to grab the last, without needing to know how many contacts are in between. And that's the core of Python lists: store a collection of items, then retrieve any one of them by position using zero-based or negative indexing.",
+      "events": [
+        {
+          "t": 294.74,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 11,
+                "endCol": 18
+              },
+              "text": "contacts = ['Alice', 'Bob', 'Carol', 'Diana']"
+            }
+          ]
+        },
+        {
+          "t": 321.17,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 3,
+                "startCol": 1,
+                "endLine": 3,
+                "endCol": 1
+              },
+              "text": "print('First contact:', contacts[0])\n"
+            }
+          ]
+        },
+        {
+          "t": 347.6,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 4,
+                "startCol": 1,
+                "endLine": 4,
+                "endCol": 1
+              },
+              "text": "print('Last contact:', contacts[-1])\n"
+            }
+          ]
+        },
+        {
+          "t": 347.6,
+          "type": "terminal_input",
+          "command": "python3 lists.py"
+        },
+        {
+          "t": 349.1,
+          "type": "terminal_output",
+          "output": "First contact: Alice\nLast contact: Diana\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "lists.py": "contacts = ['Alice', 'Bob', 'Carol', 'Diana']\n\nprint('First contact:', contacts[0])\nprint('Last contact:', contacts[-1])\n"
+        },
+        "terminalHistory": "$ python3 lists.py\napple\nbanana\ncherry\n$ python3 lists.py\n['apple', 'banana', 'cherry']\n$ python3 lists.py\n['apple', 'banana', 'cherry']\napple\nbanana\ncherry\n$ python3 lists.py\n['apple', 'banana', 'cherry']\napple\nbanana\ncherry\n$ python3 lists.py\n['apple', 'banana', 'cherry']\napple\nbanana\ncherry\ncherry\nbanana\n$ python3 lists.py\nFirst contact: Alice\nLast contact: Diana\n"
+      }
+    }
+  ]
+}

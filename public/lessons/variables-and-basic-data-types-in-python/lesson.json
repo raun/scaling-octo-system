@@ -1,0 +1,583 @@
+{
+  "version": 1,
+  "id": "variables-and-basic-data-types-in-python",
+  "title": "Variables and Basic Data Types in Python",
+  "language": "python",
+  "totalDuration": 452.02,
+  "sections": [
+    {
+      "id": "section-1",
+      "label": "Your First Variable",
+      "startTime": 0,
+      "endTime": 79.98,
+      "narration": "Let's start with the core idea behind variables. Notice that when we need to print 42 twice, we have to type it twice — and if that number ever changed, we'd have to update every single occurrence. That's exactly the problem variables solve: we store the value once in a named container called `age`, and everywhere we use `age`, Python looks up the current value. We then reassign `age` to 99, and when we run the program, Python prints each value in order — showing us that the variable now holds the new value.",
+      "events": [
+        {
+          "t": 1,
+          "type": "file_create",
+          "path": "main.py",
+          "content": "print(42)\n"
+        },
+        {
+          "t": 18,
+          "type": "edit",
+          "path": "main.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 2,
+                "startCol": 1,
+                "endLine": 2,
+                "endCol": 1
+              },
+              "text": "print(42)\n"
+            }
+          ]
+        },
+        {
+          "t": 34.99,
+          "type": "edit",
+          "path": "main.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 2,
+                "endCol": 10
+              },
+              "text": "age = 42\nprint(age)"
+            }
+          ]
+        },
+        {
+          "t": 51.99,
+          "type": "edit",
+          "path": "main.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 4,
+                "startCol": 1,
+                "endLine": 4,
+                "endCol": 1
+              },
+              "text": "age = 99\nprint(age)\n"
+            }
+          ]
+        },
+        {
+          "t": 51.99,
+          "type": "terminal_input",
+          "command": "python3 main.py"
+        },
+        {
+          "t": 53.49,
+          "type": "terminal_output",
+          "output": "42\n99\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "main.py": "age = 42\nprint(age)\n\nage = 99\nprint(age)\n"
+        },
+        "terminalHistory": "$ python3 main.py\n42\n99\n"
+      }
+    },
+    {
+      "id": "section-2",
+      "label": "Numbers: Integers and Floats",
+      "startTime": 80.48,
+      "endTime": 152.3,
+      "narration": "Now that we understand variables, let's look at two types of numbers Python distinguishes between. `num_apples` holds a whole number — that's called an integer — while `price` holds a decimal number, called a float, short for floating-point. We can use Python's built-in `type()` function to confirm this, and sure enough, Python labels one as `int` and the other as `float`. This distinction will matter later when we do calculations, since the two types can behave differently.",
+      "events": [
+        {
+          "t": 81.48,
+          "type": "edit",
+          "path": "main.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 5,
+                "endCol": 11
+              },
+              "text": "num_apples = 5\nprice = 1.99"
+            }
+          ]
+        },
+        {
+          "t": 104.32,
+          "type": "edit",
+          "path": "main.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 4,
+                "startCol": 1,
+                "endLine": 4,
+                "endCol": 1
+              },
+              "text": "print(num_apples)\nprint(price)\n"
+            }
+          ]
+        },
+        {
+          "t": 127.16,
+          "type": "edit",
+          "path": "main.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 7,
+                "startCol": 1,
+                "endLine": 7,
+                "endCol": 1
+              },
+              "text": "print(type(num_apples))\nprint(type(price))\n"
+            }
+          ]
+        },
+        {
+          "t": 127.16,
+          "type": "terminal_input",
+          "command": "python3 main.py"
+        },
+        {
+          "t": 128.66,
+          "type": "terminal_output",
+          "output": "5\n1.99\n"
+        },
+        {
+          "t": 151.3,
+          "type": "terminal_input",
+          "command": "python3 main.py"
+        },
+        {
+          "t": 151.8,
+          "type": "terminal_output",
+          "output": "5\n1.99\n<class 'int'>\n<class 'float'>\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "main.py": "num_apples = 5\nprice = 1.99\n\nprint(num_apples)\nprint(price)\n\nprint(type(num_apples))\nprint(type(price))\n"
+        },
+        "terminalHistory": "$ python3 main.py\n42\n99\n$ python3 main.py\n5\n1.99\n$ python3 main.py\n5\n1.99\n<class 'int'>\n<class 'float'>\n"
+      }
+    },
+    {
+      "id": "section-3",
+      "label": "Text with Strings",
+      "startTime": 152.8,
+      "endTime": 210.4,
+      "narration": "Text in Python is stored as a data type called a string. We create strings by wrapping text in quotes, like we do for `first_name` and `greeting`. One handy thing to know is that Python accepts both double quotes and single quotes — both work exactly the same way. We add a third variable using single quotes to demonstrate this, and all three print out perfectly fine.",
+      "events": [
+        {
+          "t": 153.8,
+          "type": "edit",
+          "path": "main.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 8,
+                "endCol": 19
+              },
+              "text": "first_name = \"Alice\"\ngreeting = \"Hello, world!\""
+            }
+          ]
+        },
+        {
+          "t": 172.02,
+          "type": "edit",
+          "path": "main.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 4,
+                "startCol": 1,
+                "endLine": 4,
+                "endCol": 1
+              },
+              "text": "print(first_name)\nprint(greeting)\n"
+            }
+          ]
+        },
+        {
+          "t": 190.24,
+          "type": "edit",
+          "path": "main.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 3,
+                "startCol": 1,
+                "endLine": 5,
+                "endCol": 16
+              },
+              "text": "language = 'Python'\n\nprint(first_name)\nprint(greeting)\nprint(language)"
+            }
+          ]
+        },
+        {
+          "t": 190.24,
+          "type": "terminal_input",
+          "command": "python3 main.py"
+        },
+        {
+          "t": 191.74,
+          "type": "terminal_output",
+          "output": "Alice\nHello, world!\n"
+        },
+        {
+          "t": 209.4,
+          "type": "terminal_input",
+          "command": "python3 main.py"
+        },
+        {
+          "t": 209.9,
+          "type": "terminal_output",
+          "output": "Alice\nHello, world!\nPython\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "main.py": "first_name = \"Alice\"\ngreeting = \"Hello, world!\"\nlanguage = 'Python'\n\nprint(first_name)\nprint(greeting)\nprint(language)\n"
+        },
+        "terminalHistory": "$ python3 main.py\n42\n99\n$ python3 main.py\n5\n1.99\n$ python3 main.py\n5\n1.99\n<class 'int'>\n<class 'float'>\n$ python3 main.py\nAlice\nHello, world!\n$ python3 main.py\nAlice\nHello, world!\nPython\n"
+      }
+    },
+    {
+      "id": "section-4",
+      "label": "True or False with Booleans",
+      "startTime": 210.9,
+      "endTime": 297.48,
+      "narration": "The fourth fundamental data type is the boolean, which can only ever be `True` or `False` — perfect for representing yes/no or on/off situations. We confirm this works as expected by checking the type. Now let's deliberately introduce a common mistake: we add a third boolean variable `is_cold`, but intentionally write `true` with a lowercase 't' to show what happens. Python throws a `NameError` because lowercase `true` isn't recognized — Python's booleans must be capitalized exactly as `True` and `False`. Once we fix the casing, everything works correctly.",
+      "events": [
+        {
+          "t": 211.9,
+          "type": "edit",
+          "path": "main.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 7,
+                "endCol": 16
+              },
+              "text": "is_raining = True\nis_sunny = False\n\nprint(is_raining)\nprint(is_sunny)"
+            }
+          ]
+        },
+        {
+          "t": 225.72,
+          "type": "edit",
+          "path": "main.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 6,
+                "startCol": 1,
+                "endLine": 6,
+                "endCol": 1
+              },
+              "text": "print(type(is_raining))\n"
+            }
+          ]
+        },
+        {
+          "t": 239.54,
+          "type": "edit",
+          "path": "main.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 3,
+                "startCol": 1,
+                "endLine": 3,
+                "endCol": 1
+              },
+              "text": "is_cold = true\n"
+            }
+          ]
+        },
+        {
+          "t": 253.36,
+          "type": "edit",
+          "path": "main.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 8,
+                "startCol": 1,
+                "endLine": 8,
+                "endCol": 1
+              },
+              "text": "print(is_cold)\n"
+            }
+          ]
+        },
+        {
+          "t": 267.18,
+          "type": "edit",
+          "path": "main.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 3,
+                "startCol": 1,
+                "endLine": 3,
+                "endCol": 15
+              },
+              "text": "is_cold = True"
+            }
+          ]
+        },
+        {
+          "t": 267.18,
+          "type": "terminal_input",
+          "command": "python3 main.py"
+        },
+        {
+          "t": 268.68,
+          "type": "terminal_output",
+          "output": "True\nFalse\n<class 'bool'>\n"
+        },
+        {
+          "t": 296.48,
+          "type": "terminal_input",
+          "command": "python3 main.py"
+        },
+        {
+          "t": 296.98,
+          "type": "terminal_output",
+          "output": "True\nFalse\n<class 'bool'>\nTrue\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "main.py": "is_raining = True\nis_sunny = False\nis_cold = True\n\nprint(is_raining)\nprint(is_sunny)\nprint(type(is_raining))\nprint(is_cold)\n"
+        },
+        "terminalHistory": "$ python3 main.py\n42\n99\n$ python3 main.py\n5\n1.99\n$ python3 main.py\n5\n1.99\n<class 'int'>\n<class 'float'>\n$ python3 main.py\nAlice\nHello, world!\n$ python3 main.py\nAlice\nHello, world!\nPython\n$ python3 main.py\nTrue\nFalse\n<class 'bool'>\n$ python3 main.py\nTrue\nFalse\n<class 'bool'>\nTrue\n"
+      }
+    },
+    {
+      "id": "section-5",
+      "label": "The Gotcha: Quotes Turn Numbers into Strings",
+      "startTime": 297.98,
+      "endTime": 377.42,
+      "narration": "Here's a classic trap that catches a lot of beginners. You might expect that adding two tens always gives you twenty — but watch what happens when that ten is wrapped in quotes. The `string_number` variable looks like a number, but because it's in quotes, Python treats it as text. So when we use the plus sign on two strings, Python doesn't add them — it joins them end to end, giving us `1010` instead of `20`. The `type()` function confirms the difference: one is an `int`, the other is a `str`.",
+      "events": [
+        {
+          "t": 298.98,
+          "type": "edit",
+          "path": "main.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 8,
+                "endCol": 15
+              },
+              "text": "# In Python, + adds numbers together but joins strings end to end.\nreal_number = 10\nstring_number = \"10\""
+            }
+          ]
+        },
+        {
+          "t": 315.86,
+          "type": "edit",
+          "path": "main.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 5,
+                "startCol": 1,
+                "endLine": 5,
+                "endCol": 1
+              },
+              "text": "print(real_number + real_number)\n"
+            }
+          ]
+        },
+        {
+          "t": 332.74,
+          "type": "edit",
+          "path": "main.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 6,
+                "startCol": 1,
+                "endLine": 6,
+                "endCol": 1
+              },
+              "text": "print(string_number + string_number)\n"
+            }
+          ]
+        },
+        {
+          "t": 349.62,
+          "type": "edit",
+          "path": "main.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 7,
+                "startCol": 1,
+                "endLine": 7,
+                "endCol": 1
+              },
+              "text": "print(type(real_number))\nprint(type(string_number))\n"
+            }
+          ]
+        },
+        {
+          "t": 349.62,
+          "type": "terminal_input",
+          "command": "python3 main.py"
+        },
+        {
+          "t": 351.12,
+          "type": "terminal_output",
+          "output": "20\n"
+        },
+        {
+          "t": 363.27,
+          "type": "terminal_input",
+          "command": "python3 main.py"
+        },
+        {
+          "t": 364.77,
+          "type": "terminal_output",
+          "output": "20\n1010\n"
+        },
+        {
+          "t": 376.42,
+          "type": "terminal_input",
+          "command": "python3 main.py"
+        },
+        {
+          "t": 376.92,
+          "type": "terminal_output",
+          "output": "20\n1010\n<class 'int'>\n<class 'str'>\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "main.py": "# In Python, + adds numbers together but joins strings end to end.\nreal_number = 10\nstring_number = \"10\"\n\nprint(real_number + real_number)\nprint(string_number + string_number)\nprint(type(real_number))\nprint(type(string_number))\n"
+        },
+        "terminalHistory": "$ python3 main.py\n42\n99\n$ python3 main.py\n5\n1.99\n$ python3 main.py\n5\n1.99\n<class 'int'>\n<class 'float'>\n$ python3 main.py\nAlice\nHello, world!\n$ python3 main.py\nAlice\nHello, world!\nPython\n$ python3 main.py\nTrue\nFalse\n<class 'bool'>\n$ python3 main.py\nTrue\nFalse\n<class 'bool'>\nTrue\n$ python3 main.py\n20\n$ python3 main.py\n20\n1010\n$ python3 main.py\n20\n1010\n<class 'int'>\n<class 'str'>\n"
+      }
+    },
+    {
+      "id": "section-6",
+      "label": "Putting It All Together",
+      "startTime": 377.92,
+      "endTime": 452.02,
+      "narration": "Let's bring everything together with a small profile example that uses all four data types at once. We store a name as a string, an age as an integer, a height as a float, and a student status as a boolean. Notice how we can pass multiple values to `print()` separated by commas — Python will display them side by side with a space in between. In this lesson, we've covered how variables work, how Python's four core data types differ, and one important gotcha about numbers inside quotes.",
+      "events": [
+        {
+          "t": 378.92,
+          "type": "edit",
+          "path": "main.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 8,
+                "endCol": 27
+              },
+              "text": "name = \"Alice\"\nage = 30\nheight = 5.6\nis_student = True"
+            }
+          ]
+        },
+        {
+          "t": 390.71,
+          "type": "edit",
+          "path": "main.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 6,
+                "startCol": 1,
+                "endLine": 6,
+                "endCol": 1
+              },
+              "text": "print(\"Name:\", name)\n"
+            }
+          ]
+        },
+        {
+          "t": 402.5,
+          "type": "edit",
+          "path": "main.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 7,
+                "startCol": 1,
+                "endLine": 7,
+                "endCol": 1
+              },
+              "text": "print(\"Age:\", age)\n"
+            }
+          ]
+        },
+        {
+          "t": 414.29,
+          "type": "edit",
+          "path": "main.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 8,
+                "startCol": 1,
+                "endLine": 8,
+                "endCol": 1
+              },
+              "text": "print(\"Height:\", height)\n"
+            }
+          ]
+        },
+        {
+          "t": 426.09,
+          "type": "edit",
+          "path": "main.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 9,
+                "startCol": 1,
+                "endLine": 9,
+                "endCol": 1
+              },
+              "text": "print(\"Is student:\", is_student)\n"
+            }
+          ]
+        },
+        {
+          "t": 426.09,
+          "type": "terminal_input",
+          "command": "python3 main.py"
+        },
+        {
+          "t": 427.59,
+          "type": "terminal_output",
+          "output": "Name: Alice\nAge: 30\nHeight: 5.6\nIs student: True\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "main.py": "name = \"Alice\"\nage = 30\nheight = 5.6\nis_student = True\n\nprint(\"Name:\", name)\nprint(\"Age:\", age)\nprint(\"Height:\", height)\nprint(\"Is student:\", is_student)\n"
+        },
+        "terminalHistory": "$ python3 main.py\n42\n99\n$ python3 main.py\n5\n1.99\n$ python3 main.py\n5\n1.99\n<class 'int'>\n<class 'float'>\n$ python3 main.py\nAlice\nHello, world!\n$ python3 main.py\nAlice\nHello, world!\nPython\n$ python3 main.py\nTrue\nFalse\n<class 'bool'>\n$ python3 main.py\nTrue\nFalse\n<class 'bool'>\nTrue\n$ python3 main.py\n20\n$ python3 main.py\n20\n1010\n$ python3 main.py\n20\n1010\n<class 'int'>\n<class 'str'>\n$ python3 main.py\nName: Alice\nAge: 30\nHeight: 5.6\nIs student: True\n"
+      }
+    }
+  ]
+}

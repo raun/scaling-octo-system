@@ -1,0 +1,76 @@
+{
+  "lessons": [
+    {
+      "id": "variables-and-basic-data-types-in-python",
+      "title": "Variables and Basic Data Types in Python",
+      "description": "",
+      "language": "python",
+      "difficulty": "beginner",
+      "tags": [],
+      "totalDuration": 452.02
+    },
+    {
+      "id": "python-lists-storing-and-accessing-multiple-items",
+      "title": "Python Lists: Storing and Accessing Multiple Items",
+      "description": "",
+      "language": "python",
+      "difficulty": "beginner",
+      "tags": [],
+      "totalDuration": 376.6
+    },
+    {
+      "id": "printing-text-to-the-screen-with-print",
+      "title": "Printing Text to the Screen with print()",
+      "description": "",
+      "language": "python",
+      "difficulty": "beginner",
+      "tags": [],
+      "totalDuration": 334.34
+    },
+    {
+      "id": "making-decisions-with-if-elif-and-else-in-python",
+      "title": "Making Decisions with if, elif, and else in Python",
+      "description": "",
+      "language": "python",
+      "difficulty": "beginner",
+      "tags": [],
+      "totalDuration": 407.06
+    },
+    {
+      "id": "repeating-actions-with-for-loops-and-range",
+      "title": "Repeating Actions with For Loops and range()",
+      "description": "",
+      "language": "python",
+      "difficulty": "beginner",
+      "tags": [],
+      "totalDuration": 409.66
+    },
+    {
+      "id": "organizing-code-with-functions-in-python",
+      "title": "Organizing Code with Functions in Python",
+      "description": "",
+      "language": "python",
+      "difficulty": "beginner",
+      "tags": [],
+      "totalDuration": 444.28
+    },
+    {
+      "id": "python-list-comprehensions-for-beginners",
+      "title": "Python List Comprehensions for Beginners",
+      "description": "",
+      "language": "python",
+      "difficulty": "beginner",
+      "tags": [],
+      "totalDuration": 392.98
+    },
+    {
+      "id": "getting-user-input-and-converting-types-in-python",
+      "title": "Getting User Input and Converting Types in Python",
+      "description": "",
+      "language": "python",
+      "difficulty": "beginner",
+      "tags": [],
+      "totalDuration": 434.68
+    }
+  ]
+}

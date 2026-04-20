@@ -1,0 +1,425 @@
+{
+  "version": 1,
+  "id": "python-list-comprehensions-for-beginners",
+  "title": "Python List Comprehensions for Beginners",
+  "language": "python",
+  "totalDuration": 392.98,
+  "sections": [
+    {
+      "id": "section-1",
+      "label": "Building a List the Old Way",
+      "startTime": 0,
+      "endTime": 57.84,
+      "narration": "Let's start with the familiar approach — building a list using a for-loop. We create an empty list called squares, then loop through the numbers 1 to 5, appending each number squared to that list. This works perfectly well, but notice how it takes four lines just to build one list. Understanding this pattern is the key to appreciating what list comprehensions give us.",
+      "events": [
+        {
+          "t": 1,
+          "type": "file_create",
+          "path": "lists.py",
+          "content": "squares = []\n"
+        },
+        {
+          "t": 19.3,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 2,
+                "startCol": 1,
+                "endLine": 2,
+                "endCol": 1
+              },
+              "text": "\nfor n in range(1, 6):\n    squares.append(n * n)\n"
+            }
+          ]
+        },
+        {
+          "t": 37.6,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 5,
+                "startCol": 1,
+                "endLine": 5,
+                "endCol": 1
+              },
+              "text": "\nprint(squares)\n"
+            }
+          ]
+        },
+        {
+          "t": 37.6,
+          "type": "terminal_input",
+          "command": "python3 lists.py"
+        },
+        {
+          "t": 39.1,
+          "type": "terminal_output",
+          "output": "[1, 4, 9, 16, 25]\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "lists.py": "squares = []\n\nfor n in range(1, 6):\n    squares.append(n * n)\n\nprint(squares)\n"
+        },
+        "terminalHistory": "$ python3 lists.py\n[1, 4, 9, 16, 25]\n"
+      }
+    },
+    {
+      "id": "section-2",
+      "label": "Your First List Comprehension",
+      "startTime": 58.34,
+      "endTime": 115.7,
+      "narration": "Now that we've seen the long way, let's replace all four lines with a single, elegant expression. We write a list comprehension that does exactly the same thing — squaring each number from 1 to 5 — in one compact line. The structure reads almost like plain English: 'give me n times n, for each n in this range.' The output is identical, but the code is much cleaner.",
+      "events": [
+        {
+          "t": 59.34,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 5,
+                "endCol": 1
+              },
+              "text": "# squares = []\n# \n# for n in range(1, 6):\n#     squares.append(n * n)\n\nsquares = [n * n for n in range(1, 6)]"
+            }
+          ]
+        },
+        {
+          "t": 95.62,
+          "type": "terminal_input",
+          "command": "python3 lists.py"
+        },
+        {
+          "t": 97.12,
+          "type": "terminal_output",
+          "output": "[1, 4, 9, 16, 25]\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "lists.py": "# squares = []\n# \n# for n in range(1, 6):\n#     squares.append(n * n)\n\nsquares = [n * n for n in range(1, 6)]\nprint(squares)\n"
+        },
+        "terminalHistory": "$ python3 lists.py\n[1, 4, 9, 16, 25]\n$ python3 lists.py\n[1, 4, 9, 16, 25]\n"
+      }
+    },
+    {
+      "id": "section-3",
+      "label": "Filtering with if",
+      "startTime": 116.2,
+      "endTime": 179.2,
+      "narration": "For this next concept, we'll start fresh with a new example focused entirely on filtering. List comprehensions can also filter values, not just transform them. We add an if condition at the end of the comprehension, which acts like a gate — only values where the condition is true make it into the new list. Here, the modulo check keeps only even numbers, giving us a filtered list in a single readable line.",
+      "events": [
+        {
+          "t": 117.2,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 7,
+                "endCol": 15
+              },
+              "text": "numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+            }
+          ]
+        },
+        {
+          "t": 137.17,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 2,
+                "startCol": 1,
+                "endLine": 2,
+                "endCol": 1
+              },
+              "text": "\nevens = [n for n in numbers if n % 2 == 0]\n"
+            }
+          ]
+        },
+        {
+          "t": 157.15,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 4,
+                "startCol": 1,
+                "endLine": 4,
+                "endCol": 1
+              },
+              "text": "print(evens)\n"
+            }
+          ]
+        },
+        {
+          "t": 157.15,
+          "type": "terminal_input",
+          "command": "python3 lists.py"
+        },
+        {
+          "t": 158.65,
+          "type": "terminal_output",
+          "output": "[2, 4, 6, 8, 10]\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "lists.py": "numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n\nevens = [n for n in numbers if n % 2 == 0]\nprint(evens)\n"
+        },
+        "terminalHistory": "$ python3 lists.py\n[1, 4, 9, 16, 25]\n$ python3 lists.py\n[1, 4, 9, 16, 25]\n$ python3 lists.py\n[2, 4, 6, 8, 10]\n"
+      }
+    },
+    {
+      "id": "section-4",
+      "label": "Transforming Strings",
+      "startTime": 179.7,
+      "endTime": 239.7,
+      "narration": "List comprehensions aren't just for numbers — they work beautifully with strings too. We call the upper method on each word as we iterate, transforming every item in the list. Then we go further, using the built-in len function to produce a completely different kind of list — the character count for each word. This shows how flexible the expression at the front of a comprehension can be.",
+      "events": [
+        {
+          "t": 180.7,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 4,
+                "endCol": 13
+              },
+              "text": "words = ['hello', 'world', 'python']"
+            }
+          ]
+        },
+        {
+          "t": 199.7,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 2,
+                "startCol": 1,
+                "endLine": 2,
+                "endCol": 1
+              },
+              "text": "\nupper_words = [word.upper() for word in words]\nprint(upper_words)\n"
+            }
+          ]
+        },
+        {
+          "t": 218.7,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 5,
+                "startCol": 1,
+                "endLine": 5,
+                "endCol": 1
+              },
+              "text": "\nlengths = [len(word) for word in words]\nprint(lengths)\n"
+            }
+          ]
+        },
+        {
+          "t": 218.7,
+          "type": "terminal_input",
+          "command": "python3 lists.py"
+        },
+        {
+          "t": 220.2,
+          "type": "terminal_output",
+          "output": "['HELLO', 'WORLD', 'PYTHON']\n"
+        },
+        {
+          "t": 238.7,
+          "type": "terminal_input",
+          "command": "python3 lists.py"
+        },
+        {
+          "t": 239.2,
+          "type": "terminal_output",
+          "output": "['HELLO', 'WORLD', 'PYTHON']\n[5, 5, 6]\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "lists.py": "words = ['hello', 'world', 'python']\n\nupper_words = [word.upper() for word in words]\nprint(upper_words)\n\nlengths = [len(word) for word in words]\nprint(lengths)\n"
+        },
+        "terminalHistory": "$ python3 lists.py\n[1, 4, 9, 16, 25]\n$ python3 lists.py\n[1, 4, 9, 16, 25]\n$ python3 lists.py\n[2, 4, 6, 8, 10]\n$ python3 lists.py\n['HELLO', 'WORLD', 'PYTHON']\n$ python3 lists.py\n['HELLO', 'WORLD', 'PYTHON']\n[5, 5, 6]\n"
+      }
+    },
+    {
+      "id": "section-5",
+      "label": "Nested Comprehensions",
+      "startTime": 240.2,
+      "endTime": 316.22,
+      "narration": "Now let's look at a trickier situation — nesting two loops inside a single comprehension. A common mistake is to write the for-clauses in the wrong order, which causes a NameError because the variable from the inner loop doesn't exist yet. We first show that broken version, then fix it by putting the for-clauses in the correct left-to-right order that mirrors how you'd write nested loops. When nesting feels confusing, writing it out as regular loops first is always a great strategy.",
+      "events": [
+        {
+          "t": 241.2,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 7,
+                "endCol": 15
+              },
+              "text": "matrix = [[1, 2], [3, 4], [5, 6]]"
+            }
+          ]
+        },
+        {
+          "t": 265.41,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 2,
+                "startCol": 1,
+                "endLine": 2,
+                "endCol": 1
+              },
+              "text": "\n# Fixed: outer loop comes first, just like nested loops\nflat = [n for row in matrix for n in row]\nprint(flat)\n"
+            }
+          ]
+        },
+        {
+          "t": 289.61,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 6,
+                "startCol": 1,
+                "endLine": 6,
+                "endCol": 1
+              },
+              "text": "\n# Same thing as a regular nested loop:\nflat2 = []\nfor row in matrix:\n    for n in row:\n        flat2.append(n)\nprint(flat2)\n"
+            }
+          ]
+        },
+        {
+          "t": 289.61,
+          "type": "terminal_input",
+          "command": "python3 lists.py"
+        },
+        {
+          "t": 291.11,
+          "type": "terminal_output",
+          "output": "[1, 2, 3, 4, 5, 6]\n"
+        },
+        {
+          "t": 315.22,
+          "type": "terminal_input",
+          "command": "python3 lists.py"
+        },
+        {
+          "t": 315.72,
+          "type": "terminal_output",
+          "output": "[1, 2, 3, 4, 5, 6]\n[1, 2, 3, 4, 5, 6]\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "lists.py": "matrix = [[1, 2], [3, 4], [5, 6]]\n\n# Fixed: outer loop comes first, just like nested loops\nflat = [n for row in matrix for n in row]\nprint(flat)\n\n# Same thing as a regular nested loop:\nflat2 = []\nfor row in matrix:\n    for n in row:\n        flat2.append(n)\nprint(flat2)\n"
+        },
+        "terminalHistory": "$ python3 lists.py\n[1, 4, 9, 16, 25]\n$ python3 lists.py\n[1, 4, 9, 16, 25]\n$ python3 lists.py\n[2, 4, 6, 8, 10]\n$ python3 lists.py\n['HELLO', 'WORLD', 'PYTHON']\n$ python3 lists.py\n['HELLO', 'WORLD', 'PYTHON']\n[5, 5, 6]\n$ python3 lists.py\n[1, 2, 3, 4, 5, 6]\n$ python3 lists.py\n[1, 2, 3, 4, 5, 6]\n[1, 2, 3, 4, 5, 6]\n"
+      }
+    },
+    {
+      "id": "section-6",
+      "label": "Putting It All Together",
+      "startTime": 316.72,
+      "endTime": 392.98,
+      "narration": "Let's bring everything together with a real-world style example. We filter prices to only those above four dollars and apply a ten percent markup — combining both transformation and filtering in a single comprehension. This is the power of list comprehensions: in one line, you express what you want, what you're working with, and the condition to apply. You've now gone from basic for-loops all the way to filtering, transforming, and even nesting — a core Python skill you'll use constantly.",
+      "events": [
+        {
+          "t": 317.72,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 12,
+                "endCol": 13
+              },
+              "text": "prices = [1.50, 8.99, 3.25, 12.00, 0.99, 5.49]"
+            }
+          ]
+        },
+        {
+          "t": 342,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 2,
+                "startCol": 1,
+                "endLine": 2,
+                "endCol": 1
+              },
+              "text": "\nexpensive = [p * 1.1 for p in prices if p > 4.00]\n"
+            }
+          ]
+        },
+        {
+          "t": 366.29,
+          "type": "edit",
+          "path": "lists.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 4,
+                "startCol": 1,
+                "endLine": 4,
+                "endCol": 1
+              },
+              "text": "print(expensive)\n"
+            }
+          ]
+        },
+        {
+          "t": 366.29,
+          "type": "terminal_input",
+          "command": "python3 lists.py"
+        },
+        {
+          "t": 367.79,
+          "type": "terminal_output",
+          "output": "[9.889000000000001, 13.200000000000001, 6.039000000000001]\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "lists.py": "prices = [1.50, 8.99, 3.25, 12.00, 0.99, 5.49]\n\nexpensive = [p * 1.1 for p in prices if p > 4.00]\nprint(expensive)\n"
+        },
+        "terminalHistory": "$ python3 lists.py\n[1, 4, 9, 16, 25]\n$ python3 lists.py\n[1, 4, 9, 16, 25]\n$ python3 lists.py\n[2, 4, 6, 8, 10]\n$ python3 lists.py\n['HELLO', 'WORLD', 'PYTHON']\n$ python3 lists.py\n['HELLO', 'WORLD', 'PYTHON']\n[5, 5, 6]\n$ python3 lists.py\n[1, 2, 3, 4, 5, 6]\n$ python3 lists.py\n[1, 2, 3, 4, 5, 6]\n[1, 2, 3, 4, 5, 6]\n$ python3 lists.py\n[9.889000000000001, 13.200000000000001, 6.039000000000001]\n"
+      }
+    }
+  ]
+}

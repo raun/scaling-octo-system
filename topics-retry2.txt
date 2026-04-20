@@ -1,0 +1,2 @@
+Getting user input with input() and converting types
+Building a simple number guessing game step by step

@@ -1,0 +1,93 @@
+{
+  "runId": "2c82302e-7dc5-4f54-9f9a-7726d01bebc8",
+  "topic": "Organizing reusable code into functions with def",
+  "options": {
+    "language": "python",
+    "difficulty": "beginner",
+    "targetDuration": 5
+  },
+  "startedAt": "2026-04-17T13:54:25.187Z",
+  "status": "completed",
+  "steps": [
+    {
+      "agent": "Planner",
+      "action": "generate",
+      "round": 1,
+      "startedAt": "2026-04-17T13:54:25.187Z",
+      "completedAt": "2026-04-17T13:54:42.989Z"
+    },
+    {
+      "agent": "PlanReviewer",
+      "action": "review",
+      "round": 1,
+      "startedAt": "2026-04-17T13:54:42.989Z",
+      "approved": true,
+      "completedAt": "2026-04-17T13:55:01.597Z"
+    },
+    {
+      "agent": "Scripter",
+      "action": "generate",
+      "round": 1,
+      "startedAt": "2026-04-17T13:55:01.597Z",
+      "completedAt": "2026-04-17T13:55:42.020Z"
+    },
+    {
+      "agent": "ScriptReviewer",
+      "action": "review",
+      "round": 1,
+      "startedAt": "2026-04-17T13:55:42.020Z",
+      "approved": false,
+      "completedAt": "2026-04-17T13:56:10.908Z"
+    },
+    {
+      "agent": "Scripter",
+      "action": "revise",
+      "round": 2,
+      "startedAt": "2026-04-17T13:56:10.908Z",
+      "completedAt": "2026-04-17T13:56:37.346Z"
+    },
+    {
+      "agent": "ScriptReviewer",
+      "action": "review",
+      "round": 2,
+      "startedAt": "2026-04-17T13:56:37.346Z",
+      "approved": true,
+      "completedAt": "2026-04-17T13:56:52.724Z"
+    },
+    {
+      "agent": "Validator",
+      "action": "validateAll",
+      "round": 1,
+      "startedAt": "2026-04-17T13:56:52.724Z",
+      "completedAt": "2026-04-17T13:57:27.363Z"
+    },
+    {
+      "agent": "TTS",
+      "action": "generateAll",
+      "round": 1,
+      "startedAt": "2026-04-17T13:57:27.364Z",
+      "completedAt": "2026-04-17T13:58:09.907Z"
+    },
+    {
+      "agent": "Assembler",
+      "action": "assemble",
+      "round": 1,
+      "startedAt": "2026-04-17T13:58:09.907Z",
+      "completedAt": "2026-04-17T13:58:09.907Z"
+    },
+    {
+      "agent": "FinalReviewer",
+      "action": "review",
+      "round": 1,
+      "startedAt": "2026-04-17T13:58:09.908Z",
+      "approved": true,
+      "completedAt": "2026-04-17T13:58:34.039Z"
+    }
+  ],
+  "totalLLMCalls": 10,
+  "totalLLMTokens": {
+    "input": 0,
+    "output": 0
+  },
+  "completedAt": "2026-04-17T13:58:34.040Z"
+}

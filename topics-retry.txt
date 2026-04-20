@@ -1,0 +1,6 @@
+Printing text to the screen with print()
+Getting user input with input() and converting types
+Making decisions with if, elif, and else statements
+Repeating actions with for loops and range()
+Organizing reusable code into functions with def
+Building a simple number guessing game step by step

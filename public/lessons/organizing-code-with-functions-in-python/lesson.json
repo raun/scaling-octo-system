@@ -1,0 +1,377 @@
+{
+  "version": 1,
+  "id": "organizing-code-with-functions-in-python",
+  "title": "Organizing Code with Functions in Python",
+  "language": "python",
+  "totalDuration": 444.28,
+  "sections": [
+    {
+      "id": "section-1",
+      "label": "The Problem: Repeated Code",
+      "startTime": 0,
+      "endTime": 60.66,
+      "narration": "Let's start by looking at a problem that shows up all the time in real code: repetition. We're printing a greeting for Alice, and then we copy those same three lines to greet Bob. It works, but imagine doing this for ten or a hundred users — that's a lot of duplicated code. If we ever want to change the separator line, we'd have to update it in every single place. There has to be a better way.",
+      "events": [
+        {
+          "t": 1,
+          "type": "file_create",
+          "path": "greet.py",
+          "content": "print('-------------------')\nprint('Welcome, Alice!')\nprint('-------------------')\n"
+        },
+        {
+          "t": 39.43,
+          "type": "edit",
+          "path": "greet.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 4,
+                "startCol": 1,
+                "endLine": 4,
+                "endCol": 1
+              },
+              "text": "\nprint('-------------------')\nprint('Welcome, Bob!')\nprint('-------------------')\n"
+            }
+          ]
+        },
+        {
+          "t": 39.43,
+          "type": "terminal_input",
+          "command": "python3 greet.py"
+        },
+        {
+          "t": 40.93,
+          "type": "terminal_output",
+          "output": "-------------------\nWelcome, Alice!\n-------------------\n-------------------\nWelcome, Bob!\n-------------------\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "greet.py": "print('-------------------')\nprint('Welcome, Alice!')\nprint('-------------------')\n\nprint('-------------------')\nprint('Welcome, Bob!')\nprint('-------------------')\n"
+        },
+        "terminalHistory": "$ python3 greet.py\n-------------------\nWelcome, Alice!\n-------------------\n-------------------\nWelcome, Bob!\n-------------------\n"
+      }
+    },
+    {
+      "id": "section-2",
+      "label": "Defining Your First Function",
+      "startTime": 61.16,
+      "endTime": 137.78,
+      "narration": "The better way is to wrap those repeated lines inside a function. We use the `def` keyword to define a function called `greet_user`, and then indent the three print statements underneath it — that indentation is how Python knows those lines belong to the function. Now instead of two separate copy-pasted blocks, we call `greet_user()` twice. Notice the output shows 'Alice' both times — the function unifies the structure, but it's hard-coded to one name right now. We'll fix that in the next section.",
+      "events": [
+        {
+          "t": 62.16,
+          "type": "edit",
+          "path": "greet.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 3,
+                "endCol": 29
+              },
+              "text": "def greet_user():\n    print('-------------------')\n    print('Welcome, Alice!')\n    print('-------------------')"
+            }
+          ]
+        },
+        {
+          "t": 110.96,
+          "type": "edit",
+          "path": "greet.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 6,
+                "startCol": 1,
+                "endLine": 8,
+                "endCol": 29
+              },
+              "text": "greet_user()\ngreet_user()"
+            }
+          ]
+        },
+        {
+          "t": 110.96,
+          "type": "terminal_input",
+          "command": "python3 greet.py"
+        },
+        {
+          "t": 112.46,
+          "type": "terminal_output",
+          "output": "-------------------\nWelcome, Alice!\n-------------------\n-------------------\nWelcome, Alice!\n-------------------\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "greet.py": "def greet_user():\n    print('-------------------')\n    print('Welcome, Alice!')\n    print('-------------------')\n\ngreet_user()\ngreet_user()\n"
+        },
+        "terminalHistory": "$ python3 greet.py\n-------------------\nWelcome, Alice!\n-------------------\n-------------------\nWelcome, Bob!\n-------------------\n$ python3 greet.py\n-------------------\nWelcome, Alice!\n-------------------\n-------------------\nWelcome, Alice!\n-------------------\n"
+      }
+    },
+    {
+      "id": "section-3",
+      "label": "Making Functions Flexible with Parameters",
+      "startTime": 138.28,
+      "endTime": 207.76,
+      "narration": "Our function works, but it always says 'Alice' — not very useful for greeting different people. We fix this by adding a *parameter* called `name` inside the parentheses and using it inside an f-string. A parameter is like a variable that gets filled in each time the function is called. Now we pass in different names at each call site, and the function personalizes the greeting for each one — adding a third user is just one new line of code.",
+      "events": [
+        {
+          "t": 139.28,
+          "type": "edit",
+          "path": "greet.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 7,
+                "endCol": 13
+              },
+              "text": "def greet_user(name):\n    print('-------------------')\n    print(f'Welcome, {name}!')\n    print('-------------------')\n\ngreet_user('Alice')\ngreet_user('Bob')"
+            }
+          ]
+        },
+        {
+          "t": 183.44,
+          "type": "edit",
+          "path": "greet.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 8,
+                "startCol": 1,
+                "endLine": 8,
+                "endCol": 1
+              },
+              "text": "greet_user('Carol')\n"
+            }
+          ]
+        },
+        {
+          "t": 183.44,
+          "type": "terminal_input",
+          "command": "python3 greet.py"
+        },
+        {
+          "t": 184.94,
+          "type": "terminal_output",
+          "output": "-------------------\nWelcome, Alice!\n-------------------\n-------------------\nWelcome, Bob!\n-------------------\n"
+        },
+        {
+          "t": 206.76,
+          "type": "terminal_input",
+          "command": "python3 greet.py"
+        },
+        {
+          "t": 207.26,
+          "type": "terminal_output",
+          "output": "-------------------\nWelcome, Alice!\n-------------------\n-------------------\nWelcome, Bob!\n-------------------\n-------------------\nWelcome, Carol!\n-------------------\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "greet.py": "def greet_user(name):\n    print('-------------------')\n    print(f'Welcome, {name}!')\n    print('-------------------')\n\ngreet_user('Alice')\ngreet_user('Bob')\ngreet_user('Carol')\n"
+        },
+        "terminalHistory": "$ python3 greet.py\n-------------------\nWelcome, Alice!\n-------------------\n-------------------\nWelcome, Bob!\n-------------------\n$ python3 greet.py\n-------------------\nWelcome, Alice!\n-------------------\n-------------------\nWelcome, Alice!\n-------------------\n$ python3 greet.py\n-------------------\nWelcome, Alice!\n-------------------\n-------------------\nWelcome, Bob!\n-------------------\n$ python3 greet.py\n-------------------\nWelcome, Alice!\n-------------------\n-------------------\nWelcome, Bob!\n-------------------\n-------------------\nWelcome, Carol!\n-------------------\n"
+      }
+    },
+    {
+      "id": "section-4",
+      "label": "Returning a Value from a Function",
+      "startTime": 208.26,
+      "endTime": 283.56,
+      "narration": "So far our functions have been doing work by printing things directly. But sometimes we want a function to *calculate* something and hand the result back so we can use it elsewhere. That's what the `return` keyword does — it sends the computed value back to the caller, where we store it in `result` and print it. Notice at the bottom of the file we call `add_numbers` without capturing the return value — it runs fine, but the result is just thrown away, which is usually a mistake.",
+      "events": [
+        {
+          "t": 209.26,
+          "type": "file_create",
+          "path": "math_helpers.py",
+          "content": "def add_numbers(a, b):\n    return a + b\n"
+        },
+        {
+          "t": 233.23,
+          "type": "edit",
+          "path": "math_helpers.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 3,
+                "startCol": 1,
+                "endLine": 3,
+                "endCol": 1
+              },
+              "text": "\nresult = add_numbers(3, 4)\nprint(result)\n"
+            }
+          ]
+        },
+        {
+          "t": 257.21,
+          "type": "edit",
+          "path": "math_helpers.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 6,
+                "startCol": 1,
+                "endLine": 6,
+                "endCol": 1
+              },
+              "text": "\nadd_numbers(10, 20)\n"
+            }
+          ]
+        },
+        {
+          "t": 257.21,
+          "type": "terminal_input",
+          "command": "python3 math_helpers.py"
+        },
+        {
+          "t": 258.71,
+          "type": "terminal_output",
+          "output": "7\n"
+        },
+        {
+          "t": 282.56,
+          "type": "terminal_input",
+          "command": "python3 math_helpers.py"
+        },
+        {
+          "t": 283.06,
+          "type": "terminal_output",
+          "output": "7\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "greet.py": "def greet_user(name):\n    print('-------------------')\n    print(f'Welcome, {name}!')\n    print('-------------------')\n\ngreet_user('Alice')\ngreet_user('Bob')\ngreet_user('Carol')\n",
+          "math_helpers.py": "def add_numbers(a, b):\n    return a + b\n\nresult = add_numbers(3, 4)\nprint(result)\n\nadd_numbers(10, 20)\n"
+        },
+        "terminalHistory": "$ python3 greet.py\n-------------------\nWelcome, Alice!\n-------------------\n-------------------\nWelcome, Bob!\n-------------------\n$ python3 greet.py\n-------------------\nWelcome, Alice!\n-------------------\n-------------------\nWelcome, Alice!\n-------------------\n$ python3 greet.py\n-------------------\nWelcome, Alice!\n-------------------\n-------------------\nWelcome, Bob!\n-------------------\n$ python3 greet.py\n-------------------\nWelcome, Alice!\n-------------------\n-------------------\nWelcome, Bob!\n-------------------\n-------------------\nWelcome, Carol!\n-------------------\n$ python3 math_helpers.py\n7\n$ python3 math_helpers.py\n7\n"
+      }
+    },
+    {
+      "id": "section-5",
+      "label": "Gotcha: Forgetting to Return (Getting None)",
+      "startTime": 284.06,
+      "endTime": 352.4,
+      "narration": "Watch out for this common gotcha: what if you forget the `return` keyword entirely? The `broken_add` function below calculates `a + b` but never returns it. You might expect to get the sum back, but when we print `bad_result`, Python outputs `None` — Python's way of saying 'this function gave me nothing'. This is a silent bug, meaning no error message appears, so always double-check that your functions actually return the value you want.",
+      "events": [
+        {
+          "t": 285.06,
+          "type": "edit",
+          "path": "math_helpers.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 7,
+                "startCol": 1,
+                "endLine": 7,
+                "endCol": 20
+              },
+              "text": "def broken_add(a, b):\n    a + b"
+            }
+          ]
+        },
+        {
+          "t": 328.48,
+          "type": "edit",
+          "path": "math_helpers.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 9,
+                "startCol": 1,
+                "endLine": 9,
+                "endCol": 1
+              },
+              "text": "\nbad_result = broken_add(3, 4)\nprint(bad_result)\n"
+            }
+          ]
+        },
+        {
+          "t": 328.48,
+          "type": "terminal_input",
+          "command": "python3 math_helpers.py"
+        },
+        {
+          "t": 329.98,
+          "type": "terminal_output",
+          "output": "7\nNone\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "greet.py": "def greet_user(name):\n    print('-------------------')\n    print(f'Welcome, {name}!')\n    print('-------------------')\n\ngreet_user('Alice')\ngreet_user('Bob')\ngreet_user('Carol')\n",
+          "math_helpers.py": "def add_numbers(a, b):\n    return a + b\n\nresult = add_numbers(3, 4)\nprint(result)\n\ndef broken_add(a, b):\n    a + b\n\nbad_result = broken_add(3, 4)\nprint(bad_result)\n"
+        },
+        "terminalHistory": "$ python3 greet.py\n-------------------\nWelcome, Alice!\n-------------------\n-------------------\nWelcome, Bob!\n-------------------\n$ python3 greet.py\n-------------------\nWelcome, Alice!\n-------------------\n-------------------\nWelcome, Alice!\n-------------------\n$ python3 greet.py\n-------------------\nWelcome, Alice!\n-------------------\n-------------------\nWelcome, Bob!\n-------------------\n$ python3 greet.py\n-------------------\nWelcome, Alice!\n-------------------\n-------------------\nWelcome, Bob!\n-------------------\n-------------------\nWelcome, Carol!\n-------------------\n$ python3 math_helpers.py\n7\n$ python3 math_helpers.py\n7\n$ python3 math_helpers.py\n7\nNone\n"
+      }
+    },
+    {
+      "id": "section-6",
+      "label": "Putting It All Together",
+      "startTime": 352.9,
+      "endTime": 444.28,
+      "narration": "Now let's bring everything together by combining multiple functions. `make_greeting` takes a name and *returns* a formatted string, while `print_summary` takes both a name and a score, *calls* `make_greeting` to build the greeting, and then prints everything out. This shows the real power of functions — you can build small, focused pieces and then compose them together into something more capable. By the end of this lesson, you've seen how to define functions, add parameters, return values, and avoid the `None` pitfall — the core toolkit for keeping your Python code clean and reusable.",
+      "events": [
+        {
+          "t": 353.9,
+          "type": "file_create",
+          "path": "summary.py",
+          "content": "def make_greeting(name):\n    return f'Hello, {name}!'\n"
+        },
+        {
+          "t": 383.1,
+          "type": "edit",
+          "path": "summary.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 3,
+                "startCol": 1,
+                "endLine": 3,
+                "endCol": 1
+              },
+              "text": "\ndef print_summary(name, score):\n    greeting = make_greeting(name)\n    print(greeting)\n    print(f'Your score is {score}')\n"
+            }
+          ]
+        },
+        {
+          "t": 412.3,
+          "type": "edit",
+          "path": "summary.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 8,
+                "startCol": 1,
+                "endLine": 8,
+                "endCol": 1
+              },
+              "text": "\nprint_summary('Alice', 95)\nprint_summary('Bob', 82)\n"
+            }
+          ]
+        },
+        {
+          "t": 412.3,
+          "type": "terminal_input",
+          "command": "python3 summary.py"
+        },
+        {
+          "t": 413.8,
+          "type": "terminal_output",
+          "output": "Hello, Alice!\nYour score is 95\nHello, Bob!\nYour score is 82\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "greet.py": "def greet_user(name):\n    print('-------------------')\n    print(f'Welcome, {name}!')\n    print('-------------------')\n\ngreet_user('Alice')\ngreet_user('Bob')\ngreet_user('Carol')\n",
+          "math_helpers.py": "def add_numbers(a, b):\n    return a + b\n\nresult = add_numbers(3, 4)\nprint(result)\n\ndef broken_add(a, b):\n    a + b\n\nbad_result = broken_add(3, 4)\nprint(bad_result)\n",
+          "summary.py": "def make_greeting(name):\n    return f'Hello, {name}!'\n\ndef print_summary(name, score):\n    greeting = make_greeting(name)\n    print(greeting)\n    print(f'Your score is {score}')\n\nprint_summary('Alice', 95)\nprint_summary('Bob', 82)\n"
+        },
+        "terminalHistory": "$ python3 greet.py\n-------------------\nWelcome, Alice!\n-------------------\n-------------------\nWelcome, Bob!\n-------------------\n$ python3 greet.py\n-------------------\nWelcome, Alice!\n-------------------\n-------------------\nWelcome, Alice!\n-------------------\n$ python3 greet.py\n-------------------\nWelcome, Alice!\n-------------------\n-------------------\nWelcome, Bob!\n-------------------\n$ python3 greet.py\n-------------------\nWelcome, Alice!\n-------------------\n-------------------\nWelcome, Bob!\n-------------------\n-------------------\nWelcome, Carol!\n-------------------\n$ python3 math_helpers.py\n7\n$ python3 math_helpers.py\n7\n$ python3 math_helpers.py\n7\nNone\n$ python3 summary.py\nHello, Alice!\nYour score is 95\nHello, Bob!\nYour score is 82\n"
+      }
+    }
+  ]
+}

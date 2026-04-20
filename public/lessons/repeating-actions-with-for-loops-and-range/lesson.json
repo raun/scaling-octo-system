@@ -1,0 +1,383 @@
+{
+  "version": 1,
+  "id": "repeating-actions-with-for-loops-and-range",
+  "title": "Repeating Actions with For Loops and range()",
+  "language": "python",
+  "totalDuration": 409.66,
+  "sections": [
+    {
+      "id": "section-1",
+      "label": "The Problem with Copy-Pasting",
+      "startTime": 0,
+      "endTime": 50.64,
+      "narration": "Let's start by looking at a problem you've probably already run into: what if you need to do the same thing over and over? Here we're greeting five people, so we write five nearly identical lines, one for each name. It works, but imagine doing this for a hundred names — that's a hundred lines of almost identical code. There has to be a better way.",
+      "events": [
+        {
+          "t": 1,
+          "type": "file_create",
+          "path": "loops.py",
+          "content": "print('Hello, Alice!')\n"
+        },
+        {
+          "t": 8.98,
+          "type": "edit",
+          "path": "loops.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 2,
+                "startCol": 1,
+                "endLine": 2,
+                "endCol": 1
+              },
+              "text": "print('Hello, Bob!')\n"
+            }
+          ]
+        },
+        {
+          "t": 16.96,
+          "type": "edit",
+          "path": "loops.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 3,
+                "startCol": 1,
+                "endLine": 3,
+                "endCol": 1
+              },
+              "text": "print('Hello, Carol!')\n"
+            }
+          ]
+        },
+        {
+          "t": 24.94,
+          "type": "edit",
+          "path": "loops.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 4,
+                "startCol": 1,
+                "endLine": 4,
+                "endCol": 1
+              },
+              "text": "print('Hello, Dana!')\n"
+            }
+          ]
+        },
+        {
+          "t": 32.92,
+          "type": "edit",
+          "path": "loops.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 5,
+                "startCol": 1,
+                "endLine": 5,
+                "endCol": 1
+              },
+              "text": "print('Hello, Eve!')\n"
+            }
+          ]
+        },
+        {
+          "t": 32.92,
+          "type": "terminal_input",
+          "command": "python3 loops.py"
+        },
+        {
+          "t": 34.42,
+          "type": "terminal_output",
+          "output": "Hello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "loops.py": "print('Hello, Alice!')\nprint('Hello, Bob!')\nprint('Hello, Carol!')\nprint('Hello, Dana!')\nprint('Hello, Eve!')\n"
+        },
+        "terminalHistory": "$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\n"
+      }
+    },
+    {
+      "id": "section-2",
+      "label": "Your First For Loop",
+      "startTime": 51.14,
+      "endTime": 103.82,
+      "narration": "Here's that better way: the for loop. Instead of writing one line per name, we give Python a list of names and tell it to run the same print statement for each one. Notice that the output is exactly the same as before — but now we only wrote two lines of code instead of five, and adding a new name is as simple as adding it to the list.",
+      "events": [
+        {
+          "t": 52.14,
+          "type": "edit",
+          "path": "loops.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 5,
+                "endCol": 21
+              },
+              "text": "for name in ['Alice', 'Bob', 'Carol', 'Dana', 'Eve']:\n    print('Hello, ' + name + '!')"
+            }
+          ]
+        },
+        {
+          "t": 85.38,
+          "type": "terminal_input",
+          "command": "python3 loops.py"
+        },
+        {
+          "t": 86.88,
+          "type": "terminal_output",
+          "output": "Hello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "loops.py": "for name in ['Alice', 'Bob', 'Carol', 'Dana', 'Eve']:\n    print('Hello, ' + name + '!')\n"
+        },
+        "terminalHistory": "$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\n$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\n"
+      }
+    },
+    {
+      "id": "section-3",
+      "label": "Counting with range()",
+      "startTime": 104.32,
+      "endTime": 179.02,
+      "narration": "Looping over a list of names is great, but what if we just want to repeat something a specific number of times without writing a long list by hand? That's where Python's built-in range() function comes in. We add a second loop below the first — range(5) automatically generates the numbers zero through four, giving the loop something to count through. When we run the file, both loops execute: you'll see the five greetings from the first loop, followed by the five numbers from the second.",
+      "events": [
+        {
+          "t": 105.32,
+          "type": "edit",
+          "path": "loops.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 3,
+                "startCol": 1,
+                "endLine": 3,
+                "endCol": 1
+              },
+              "text": "\n# What if we need to repeat something 100 times? We wouldn't want to write a list with 100 items.\n"
+            }
+          ]
+        },
+        {
+          "t": 152.88,
+          "type": "edit",
+          "path": "loops.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 5,
+                "startCol": 1,
+                "endLine": 5,
+                "endCol": 1
+              },
+              "text": "for i in range(5):\n    print(i)\n"
+            }
+          ]
+        },
+        {
+          "t": 152.88,
+          "type": "terminal_input",
+          "command": "python3 loops.py"
+        },
+        {
+          "t": 154.38,
+          "type": "terminal_output",
+          "output": "Hello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\n0\n1\n2\n3\n4\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "loops.py": "for name in ['Alice', 'Bob', 'Carol', 'Dana', 'Eve']:\n    print('Hello, ' + name + '!')\n\n# What if we need to repeat something 100 times? We wouldn't want to write a list with 100 items.\nfor i in range(5):\n    print(i)\n"
+        },
+        "terminalHistory": "$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\n$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\n$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\n0\n1\n2\n3\n4\n"
+      }
+    },
+    {
+      "id": "section-4",
+      "label": "Gotcha: range() Starts at Zero",
+      "startTime": 179.52,
+      "endTime": 259.92,
+      "narration": "Now let's format that counter more nicely by printing it as a labeled step — so instead of bare numbers, we'll see 'Step 1', 'Step 2', and so on. But watch what happens: the output shows Step 0 through Step 4, not Step 1 through Step 5 like you might expect. That's because range() starts at zero by default. To fix this, we pass two arguments — a start and a stop. Giving range() the values 1 and 6 starts at 1 and goes up to, but not including, 6 — giving us exactly the steps 1 through 5.",
+      "events": [
+        {
+          "t": 180.52,
+          "type": "edit",
+          "path": "loops.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 6,
+                "startCol": 1,
+                "endLine": 6,
+                "endCol": 13
+              },
+              "text": "    print('Step ' + str(i))"
+            }
+          ]
+        },
+        {
+          "t": 231.78,
+          "type": "edit",
+          "path": "loops.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 5,
+                "startCol": 1,
+                "endLine": 5,
+                "endCol": 19
+              },
+              "text": "for i in range(1, 6):"
+            }
+          ]
+        },
+        {
+          "t": 231.78,
+          "type": "terminal_input",
+          "command": "python3 loops.py"
+        },
+        {
+          "t": 233.28,
+          "type": "terminal_output",
+          "output": "Hello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\nStep 0\nStep 1\nStep 2\nStep 3\nStep 4\n"
+        },
+        {
+          "t": 258.92,
+          "type": "terminal_input",
+          "command": "python3 loops.py"
+        },
+        {
+          "t": 259.42,
+          "type": "terminal_output",
+          "output": "Hello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\nStep 1\nStep 2\nStep 3\nStep 4\nStep 5\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "loops.py": "for name in ['Alice', 'Bob', 'Carol', 'Dana', 'Eve']:\n    print('Hello, ' + name + '!')\n\n# What if we need to repeat something 100 times? We wouldn't want to write a list with 100 items.\nfor i in range(1, 6):\n    print('Step ' + str(i))\n"
+        },
+        "terminalHistory": "$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\n$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\n$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\n0\n1\n2\n3\n4\n$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\nStep 0\nStep 1\nStep 2\nStep 3\nStep 4\n$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\nStep 1\nStep 2\nStep 3\nStep 4\nStep 5\n"
+      }
+    },
+    {
+      "id": "section-5",
+      "label": "Using the Loop Variable for Computation",
+      "startTime": 260.42,
+      "endTime": 315.98,
+      "narration": "Now that we understand how range() counts, let's use that counter for something more interesting than just labeling steps. The loop variable i isn't just a counter — it's a real number we can do math with inside the loop body. Inside the new loop, we multiply i by 3 on every iteration, which lets us print an entire multiplication table with just two lines of code.",
+      "events": [
+        {
+          "t": 261.42,
+          "type": "edit",
+          "path": "loops.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 7,
+                "startCol": 1,
+                "endLine": 7,
+                "endCol": 1
+              },
+              "text": "\n# So far we've used i just to count — but i is a real number we can do math with.\n"
+            }
+          ]
+        },
+        {
+          "t": 296.53,
+          "type": "edit",
+          "path": "loops.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 9,
+                "startCol": 1,
+                "endLine": 9,
+                "endCol": 1
+              },
+              "text": "for i in range(1, 6):\n    print(str(i) + ' x 3 = ' + str(i * 3))\n"
+            }
+          ]
+        },
+        {
+          "t": 296.53,
+          "type": "terminal_input",
+          "command": "python3 loops.py"
+        },
+        {
+          "t": 298.03,
+          "type": "terminal_output",
+          "output": "Hello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\nStep 1\nStep 2\nStep 3\nStep 4\nStep 5\n1 x 3 = 3\n2 x 3 = 6\n3 x 3 = 9\n4 x 3 = 12\n5 x 3 = 15\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "loops.py": "for name in ['Alice', 'Bob', 'Carol', 'Dana', 'Eve']:\n    print('Hello, ' + name + '!')\n\n# What if we need to repeat something 100 times? We wouldn't want to write a list with 100 items.\nfor i in range(1, 6):\n    print('Step ' + str(i))\n\n# So far we've used i just to count — but i is a real number we can do math with.\nfor i in range(1, 6):\n    print(str(i) + ' x 3 = ' + str(i * 3))\n"
+        },
+        "terminalHistory": "$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\n$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\n$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\n0\n1\n2\n3\n4\n$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\nStep 0\nStep 1\nStep 2\nStep 3\nStep 4\n$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\nStep 1\nStep 2\nStep 3\nStep 4\nStep 5\n$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\nStep 1\nStep 2\nStep 3\nStep 4\nStep 5\n1 x 3 = 3\n2 x 3 = 6\n3 x 3 = 9\n4 x 3 = 12\n5 x 3 = 15\n"
+      }
+    },
+    {
+      "id": "section-6",
+      "label": "Putting It Together",
+      "startTime": 316.48,
+      "endTime": 409.66,
+      "narration": "To make our loop even more flexible, let's store the multiplier in a variable and wire it straight into the loop in one go. By doing that, we only have to change one number to produce a completely different multiplication table — the loop does the rest automatically. Changing that single variable from 4 to 7 instantly gives us the seven-times table with no other edits. Notice that the earlier three-times table loop is still in the file and still runs, so the final output includes both tables. And that's the real power of for loops: write the logic once, and let Python handle all the repetition.",
+      "events": [
+        {
+          "t": 317.48,
+          "type": "edit",
+          "path": "loops.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 11,
+                "startCol": 1,
+                "endLine": 11,
+                "endCol": 1
+              },
+              "text": "\nmultiplier = 4\nfor i in range(1, 6):\n    print(str(i) + ' x ' + str(multiplier) + ' = ' + str(i * multiplier))\n"
+            }
+          ]
+        },
+        {
+          "t": 377.05,
+          "type": "edit",
+          "path": "loops.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 12,
+                "startCol": 1,
+                "endLine": 12,
+                "endCol": 15
+              },
+              "text": "multiplier = 7"
+            }
+          ]
+        },
+        {
+          "t": 377.05,
+          "type": "terminal_input",
+          "command": "python3 loops.py"
+        },
+        {
+          "t": 378.55,
+          "type": "terminal_output",
+          "output": "Hello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\nStep 1\nStep 2\nStep 3\nStep 4\nStep 5\n1 x 3 = 3\n2 x 3 = 6\n3 x 3 = 9\n4 x 3 = 12\n5 x 3 = 15\n1 x 7 = 7\n2 x 7 = 14\n3 x 7 = 21\n4 x 7 = 28\n5 x 7 = 35\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "loops.py": "for name in ['Alice', 'Bob', 'Carol', 'Dana', 'Eve']:\n    print('Hello, ' + name + '!')\n\n# What if we need to repeat something 100 times? We wouldn't want to write a list with 100 items.\nfor i in range(1, 6):\n    print('Step ' + str(i))\n\n# So far we've used i just to count — but i is a real number we can do math with.\nfor i in range(1, 6):\n    print(str(i) + ' x 3 = ' + str(i * 3))\n\nmultiplier = 7\nfor i in range(1, 6):\n    print(str(i) + ' x ' + str(multiplier) + ' = ' + str(i * multiplier))\n"
+        },
+        "terminalHistory": "$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\n$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\n$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\n0\n1\n2\n3\n4\n$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\nStep 0\nStep 1\nStep 2\nStep 3\nStep 4\n$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\nStep 1\nStep 2\nStep 3\nStep 4\nStep 5\n$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\nStep 1\nStep 2\nStep 3\nStep 4\nStep 5\n1 x 3 = 3\n2 x 3 = 6\n3 x 3 = 9\n4 x 3 = 12\n5 x 3 = 15\n$ python3 loops.py\nHello, Alice!\nHello, Bob!\nHello, Carol!\nHello, Dana!\nHello, Eve!\nStep 1\nStep 2\nStep 3\nStep 4\nStep 5\n1 x 3 = 3\n2 x 3 = 6\n3 x 3 = 9\n4 x 3 = 12\n5 x 3 = 15\n1 x 7 = 7\n2 x 7 = 14\n3 x 7 = 21\n4 x 7 = 28\n5 x 7 = 35\n"
+      }
+    }
+  ]
+}

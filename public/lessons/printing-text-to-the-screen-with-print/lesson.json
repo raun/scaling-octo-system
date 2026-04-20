@@ -1,0 +1,284 @@
+{
+  "version": 1,
+  "id": "printing-text-to-the-screen-with-print",
+  "title": "Printing Text to the Screen with print()",
+  "language": "python",
+  "totalDuration": 334.34,
+  "sections": [
+    {
+      "id": "section-1",
+      "label": "Your First print() Call",
+      "startTime": 0,
+      "endTime": 54.24,
+      "narration": "Let's start with the most fundamental thing you can do in Python — displaying text on the screen. We call the built-in print() function and pass it the text we want to show, wrapped in quotes. When we run the file, Python executes that line and outputs the message directly to the terminal. This is the foundation we'll build on throughout the lesson.",
+      "events": [
+        {
+          "t": 1,
+          "type": "file_create",
+          "path": "hello.py",
+          "content": "print(\"Hello, world!\")\n"
+        },
+        {
+          "t": 35.26,
+          "type": "terminal_input",
+          "command": "python3 hello.py"
+        },
+        {
+          "t": 36.76,
+          "type": "terminal_output",
+          "output": "Hello, world!\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "hello.py": "print(\"Hello, world!\")\n"
+        },
+        "terminalHistory": "$ python3 hello.py\nHello, world!\n"
+      }
+    },
+    {
+      "id": "section-2",
+      "label": "Printing Variables and Different Data Types",
+      "startTime": 54.74,
+      "endTime": 113.54,
+      "narration": "Now that we can print a fixed piece of text, let's see how print() works with variables. We store a name in a variable and then pass that variable directly to print() — no quotes needed, because we want the value inside the variable, not the word 'name' itself. A few lines down we do the same with a number, which shows that print() handles both text and integers without any extra work from us.",
+      "events": [
+        {
+          "t": 55.74,
+          "type": "edit",
+          "path": "hello.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 2,
+                "startCol": 1,
+                "endLine": 2,
+                "endCol": 1
+              },
+              "text": "\nname = \"Alice\"\nprint(name)\n"
+            }
+          ]
+        },
+        {
+          "t": 92.96,
+          "type": "edit",
+          "path": "hello.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 5,
+                "startCol": 1,
+                "endLine": 5,
+                "endCol": 1
+              },
+              "text": "\nage = 30\nprint(age)\n"
+            }
+          ]
+        },
+        {
+          "t": 92.96,
+          "type": "terminal_input",
+          "command": "python3 hello.py"
+        },
+        {
+          "t": 94.46,
+          "type": "terminal_output",
+          "output": "Hello, world!\nAlice\n"
+        },
+        {
+          "t": 112.54,
+          "type": "terminal_input",
+          "command": "python3 hello.py"
+        },
+        {
+          "t": 113.04,
+          "type": "terminal_output",
+          "output": "Hello, world!\nAlice\n30\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "hello.py": "print(\"Hello, world!\")\n\nname = \"Alice\"\nprint(name)\n\nage = 30\nprint(age)\n"
+        },
+        "terminalHistory": "$ python3 hello.py\nHello, world!\n$ python3 hello.py\nHello, world!\nAlice\n$ python3 hello.py\nHello, world!\nAlice\n30\n"
+      }
+    },
+    {
+      "id": "section-3",
+      "label": "Printing Multiple Values at Once",
+      "startTime": 114.04,
+      "endTime": 173.92,
+      "narration": "Watch what happens when we try to combine a string and a number using the plus sign — Python throws a TypeError, because you can't concatenate text and an integer directly. The cleaner fix is to pass each value as a separate argument, separated by commas. When print() receives multiple arguments this way, it automatically joins them with a space, handling the type difference for us.",
+      "events": [
+        {
+          "t": 115.04,
+          "type": "edit",
+          "path": "hello.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 8,
+                "startCol": 1,
+                "endLine": 8,
+                "endCol": 1
+              },
+              "text": "\n# This would cause a TypeError:\n# print(name + \" is \" + age + \" years old\")\n\nprint(name, \"is\", age, \"years old\")\n"
+            }
+          ]
+        },
+        {
+          "t": 152.96,
+          "type": "terminal_input",
+          "command": "python3 hello.py"
+        },
+        {
+          "t": 154.46,
+          "type": "terminal_output",
+          "output": "Hello, world!\nAlice\n30\nAlice is 30 years old\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "hello.py": "print(\"Hello, world!\")\n\nname = \"Alice\"\nprint(name)\n\nage = 30\nprint(age)\n\n# This would cause a TypeError:\n# print(name + \" is \" + age + \" years old\")\n\nprint(name, \"is\", age, \"years old\")\n"
+        },
+        "terminalHistory": "$ python3 hello.py\nHello, world!\n$ python3 hello.py\nHello, world!\nAlice\n$ python3 hello.py\nHello, world!\nAlice\n30\n$ python3 hello.py\nHello, world!\nAlice\n30\nAlice is 30 years old\n"
+      }
+    },
+    {
+      "id": "section-4",
+      "label": "The Gotcha: print() vs. Just Typing a Value",
+      "startTime": 174.42,
+      "endTime": 235.2,
+      "narration": "Here's a common gotcha that trips up beginners. In the interactive Python shell, just typing a value echoes it back to you — so it looks like it's being printed. But in a script file, simply writing a value on its own produces absolutely no output, as you can see when we run gotcha.py and get nothing back. You must explicitly call print() to get anything to appear in the terminal when running a script.",
+      "events": [
+        {
+          "t": 175.42,
+          "type": "file_create",
+          "path": "gotcha.py",
+          "content": "\"Hello\"\n"
+        },
+        {
+          "t": 213.93,
+          "type": "edit",
+          "path": "gotcha.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 1,
+                "endCol": 8
+              },
+              "text": "print(\"Hello\")"
+            }
+          ]
+        },
+        {
+          "t": 213.93,
+          "type": "terminal_input",
+          "command": "python3"
+        },
+        {
+          "t": 215.43,
+          "type": "terminal_output",
+          "output": "(no output)\n"
+        },
+        {
+          "t": 224.31,
+          "type": "terminal_input",
+          "command": "python3 gotcha.py"
+        },
+        {
+          "t": 225.81,
+          "type": "terminal_output",
+          "output": "(no output)\n"
+        },
+        {
+          "t": 234.2,
+          "type": "terminal_input",
+          "command": "python3 gotcha.py"
+        },
+        {
+          "t": 234.7,
+          "type": "terminal_output",
+          "output": "Hello\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "hello.py": "print(\"Hello, world!\")\n\nname = \"Alice\"\nprint(name)\n\nage = 30\nprint(age)\n\n# This would cause a TypeError:\n# print(name + \" is \" + age + \" years old\")\n\nprint(name, \"is\", age, \"years old\")\n",
+          "gotcha.py": "print(\"Hello\")\n"
+        },
+        "terminalHistory": "$ python3 hello.py\nHello, world!\n$ python3 hello.py\nHello, world!\nAlice\n$ python3 hello.py\nHello, world!\nAlice\n30\n$ python3 hello.py\nHello, world!\nAlice\n30\nAlice is 30 years old\n$ python3\n(no output)\n$ python3 gotcha.py\n(no output)\n$ python3 gotcha.py\nHello\n"
+      }
+    },
+    {
+      "id": "section-5",
+      "label": "Controlling Output with sep and end",
+      "startTime": 235.7,
+      "endTime": 334.34,
+      "narration": "Now let's take control of exactly how print() formats its output using two optional keyword arguments: sep and end. The sep argument replaces the default space between values with any character you choose — here we use a dash, so the words get joined with hyphens instead of spaces. The end argument replaces the automatic newline that print() normally adds after each call, which is how we get two separate print() calls to appear on the same line. That wraps up the essentials of print() — you now know how to display text and variables, avoid common pitfalls like the TypeError and the silent value gotcha, and customize your output formatting.",
+      "events": [
+        {
+          "t": 236.7,
+          "type": "edit",
+          "path": "hello.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 9,
+                "startCol": 1,
+                "endLine": 12,
+                "endCol": 36
+              },
+              "text": "print(name, \"is\", age, \"years old\")\nprint(name, \"is\", age, \"years old\", sep=\"-\")"
+            }
+          ]
+        },
+        {
+          "t": 299.82,
+          "type": "edit",
+          "path": "hello.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 11,
+                "startCol": 1,
+                "endLine": 11,
+                "endCol": 1
+              },
+              "text": "\nprint(\"Hello\", end=\" \")\nprint(\"World\")\n"
+            }
+          ]
+        },
+        {
+          "t": 299.82,
+          "type": "terminal_input",
+          "command": "python3 hello.py"
+        },
+        {
+          "t": 301.32,
+          "type": "terminal_output",
+          "output": "Hello, world!\nAlice\n30\nAlice is 30 years old\nAlice-is-30-years old\n"
+        },
+        {
+          "t": 333.34,
+          "type": "terminal_input",
+          "command": "python3 hello.py"
+        },
+        {
+          "t": 333.84,
+          "type": "terminal_output",
+          "output": "Hello, world!\nAlice\n30\nAlice is 30 years old\nAlice-is-30-years old\nHello World\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "hello.py": "print(\"Hello, world!\")\n\nname = \"Alice\"\nprint(name)\n\nage = 30\nprint(age)\n\nprint(name, \"is\", age, \"years old\")\nprint(name, \"is\", age, \"years old\", sep=\"-\")\n\nprint(\"Hello\", end=\" \")\nprint(\"World\")\n",
+          "gotcha.py": "print(\"Hello\")\n"
+        },
+        "terminalHistory": "$ python3 hello.py\nHello, world!\n$ python3 hello.py\nHello, world!\nAlice\n$ python3 hello.py\nHello, world!\nAlice\n30\n$ python3 hello.py\nHello, world!\nAlice\n30\nAlice is 30 years old\n$ python3\n(no output)\n$ python3 gotcha.py\n(no output)\n$ python3 gotcha.py\nHello\n$ python3 hello.py\nHello, world!\nAlice\n30\nAlice is 30 years old\nAlice-is-30-years old\n$ python3 hello.py\nHello, world!\nAlice\n30\nAlice is 30 years old\nAlice-is-30-years old\nHello World\n"
+      }
+    }
+  ]
+}

@@ -1,0 +1,484 @@
+{
+  "version": 1,
+  "id": "making-decisions-with-if-elif-and-else-in-python",
+  "title": "Making Decisions with if, elif, and else in Python",
+  "language": "python",
+  "totalDuration": 407.06,
+  "sections": [
+    {
+      "id": "section-1",
+      "label": "Your First if Statement",
+      "startTime": 0,
+      "endTime": 62.34,
+      "narration": "Let's start with the most fundamental building block of decision-making in Python: the `if` statement. We set a score at the top, then ask a question below it — is that score 60 or higher? If the answer is yes, Python runs the indented code beneath it. When we change the score to 40 and run it again, nothing prints at all, because the condition is false and Python simply skips over that block.",
+      "events": [
+        {
+          "t": 1,
+          "type": "file_create",
+          "path": "grades.py",
+          "content": "score = 85\n"
+        },
+        {
+          "t": 20.76,
+          "type": "edit",
+          "path": "grades.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 2,
+                "startCol": 1,
+                "endLine": 2,
+                "endCol": 1
+              },
+              "text": "\nif score >= 60:\n    print('You passed!')\n"
+            }
+          ]
+        },
+        {
+          "t": 40.52,
+          "type": "edit",
+          "path": "grades.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 1,
+                "endCol": 11
+              },
+              "text": "score = 40"
+            }
+          ]
+        },
+        {
+          "t": 40.52,
+          "type": "terminal_input",
+          "command": "python3 grades.py"
+        },
+        {
+          "t": 42.02,
+          "type": "terminal_output",
+          "output": "You passed!\n"
+        },
+        {
+          "t": 61.34,
+          "type": "terminal_input",
+          "command": "python3 grades.py"
+        },
+        {
+          "t": 61.84,
+          "type": "terminal_output",
+          "output": "(no output)\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "grades.py": "score = 40\n\nif score >= 60:\n    print('You passed!')\n"
+        },
+        "terminalHistory": "$ python3 grades.py\nYou passed!\n$ python3 grades.py\n(no output)\n"
+      }
+    },
+    {
+      "id": "section-2",
+      "label": "Handling the False Case with else",
+      "startTime": 62.84,
+      "endTime": 126.32,
+      "narration": "Now that we can handle the passing case, let's give our program something to do when the condition is false. Adding an `else` block means Python always has a path to follow — if the score is 60 or above it prints the passing message, and in every other case it falls through to `else` and prints the failing message. Together, `if` and `else` guarantee that exactly one of the two outcomes will always run.",
+      "events": [
+        {
+          "t": 63.84,
+          "type": "edit",
+          "path": "grades.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 5,
+                "startCol": 1,
+                "endLine": 5,
+                "endCol": 1
+              },
+              "text": "else:\n    print('You failed.')\n"
+            }
+          ]
+        },
+        {
+          "t": 104.1,
+          "type": "edit",
+          "path": "grades.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 1,
+                "endCol": 11
+              },
+              "text": "score = 85"
+            }
+          ]
+        },
+        {
+          "t": 104.1,
+          "type": "terminal_input",
+          "command": "python3 grades.py"
+        },
+        {
+          "t": 105.6,
+          "type": "terminal_output",
+          "output": "You failed.\n"
+        },
+        {
+          "t": 125.32,
+          "type": "terminal_input",
+          "command": "python3 grades.py"
+        },
+        {
+          "t": 125.82,
+          "type": "terminal_output",
+          "output": "You passed!\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "grades.py": "score = 85\n\nif score >= 60:\n    print('You passed!')\nelse:\n    print('You failed.')\n"
+        },
+        "terminalHistory": "$ python3 grades.py\nYou passed!\n$ python3 grades.py\n(no output)\n$ python3 grades.py\nYou failed.\n$ python3 grades.py\nYou passed!\n"
+      }
+    },
+    {
+      "id": "section-3",
+      "label": "Adding More Choices with elif",
+      "startTime": 126.82,
+      "endTime": 223.54,
+      "narration": "A simple pass-or-fail check is useful, but real grade systems need more than two outcomes. That's where `elif` — short for 'else if' — comes in. We tighten the `if` condition to only catch A-level scores and update the message to match, then slot in `elif` branches for B and C grades; the existing `else` stays at the bottom as a catch-all — we'll add a proper D grade and rename the catch-all to F in the final section. Python checks each condition in order and stops as soon as one is true, so a score of 85 correctly lands on the B branch, a 95 gets an A, and a 55 falls all the way through to `else`.",
+      "events": [
+        {
+          "t": 127.82,
+          "type": "edit",
+          "path": "grades.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 3,
+                "startCol": 1,
+                "endLine": 4,
+                "endCol": 25
+              },
+              "text": "if score >= 90:\n    print('You got an A')"
+            }
+          ]
+        },
+        {
+          "t": 143.29,
+          "type": "edit",
+          "path": "grades.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 5,
+                "startCol": 1,
+                "endLine": 5,
+                "endCol": 1
+              },
+              "text": "elif score >= 80:\n    print('You got a B')\n"
+            }
+          ]
+        },
+        {
+          "t": 158.75,
+          "type": "edit",
+          "path": "grades.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 7,
+                "startCol": 1,
+                "endLine": 7,
+                "endCol": 1
+              },
+              "text": "elif score >= 70:\n    print('You got a C')\n"
+            }
+          ]
+        },
+        {
+          "t": 174.22,
+          "type": "edit",
+          "path": "grades.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 1,
+                "endCol": 11
+              },
+              "text": "score = 95"
+            }
+          ]
+        },
+        {
+          "t": 189.69,
+          "type": "edit",
+          "path": "grades.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 1,
+                "endCol": 11
+              },
+              "text": "score = 55"
+            }
+          ]
+        },
+        {
+          "t": 189.69,
+          "type": "terminal_input",
+          "command": "python3 grades.py"
+        },
+        {
+          "t": 191.19,
+          "type": "terminal_output",
+          "output": "You got a B\n"
+        },
+        {
+          "t": 206.36,
+          "type": "terminal_input",
+          "command": "python3 grades.py"
+        },
+        {
+          "t": 207.86,
+          "type": "terminal_output",
+          "output": "You got an A\n"
+        },
+        {
+          "t": 222.54,
+          "type": "terminal_input",
+          "command": "python3 grades.py"
+        },
+        {
+          "t": 223.04,
+          "type": "terminal_output",
+          "output": "You failed.\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "grades.py": "score = 55\n\nif score >= 90:\n    print('You got an A')\nelif score >= 80:\n    print('You got a B')\nelif score >= 70:\n    print('You got a C')\nelse:\n    print('You failed.')\n"
+        },
+        "terminalHistory": "$ python3 grades.py\nYou passed!\n$ python3 grades.py\n(no output)\n$ python3 grades.py\nYou failed.\n$ python3 grades.py\nYou passed!\n$ python3 grades.py\nYou got a B\n$ python3 grades.py\nYou got an A\n$ python3 grades.py\nYou failed.\n"
+      }
+    },
+    {
+      "id": "section-4",
+      "label": "Order Matters — A Common Gotcha",
+      "startTime": 224.04,
+      "endTime": 309.9,
+      "narration": "Watch what happens when we put the conditions in the wrong order. In `gotcha.py`, a score of 95 hits the very first condition — score 60 or above — which is true, so Python prints 'You passed' and stops without ever checking the A or B branches. Importantly, Python won't raise an error here — the program runs fine, but gives you the wrong result, which can actually be harder to spot than a crash. The fix is to always check the most specific, highest-value conditions first, so that broader conditions act as a true catch-all at the bottom.",
+      "events": [
+        {
+          "t": 225.04,
+          "type": "file_create",
+          "path": "gotcha.py",
+          "content": "score = 95\n\nif score >= 60:\n    print('You passed')\nelif score >= 80:\n    print('You got a B')\nelif score >= 90:\n    print('You got an A')\n"
+        },
+        {
+          "t": 279.85,
+          "type": "edit",
+          "path": "gotcha.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 3,
+                "startCol": 1,
+                "endLine": 8,
+                "endCol": 26
+              },
+              "text": "if score >= 90:\n    print('You got an A')\nelif score >= 80:\n    print('You got a B')\nelif score >= 60:\n    print('You passed')"
+            }
+          ]
+        },
+        {
+          "t": 279.85,
+          "type": "terminal_input",
+          "command": "python3 gotcha.py"
+        },
+        {
+          "t": 281.35,
+          "type": "terminal_output",
+          "output": "You passed\n"
+        },
+        {
+          "t": 308.9,
+          "type": "terminal_input",
+          "command": "python3 gotcha.py"
+        },
+        {
+          "t": 309.4,
+          "type": "terminal_output",
+          "output": "You got an A\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "grades.py": "score = 55\n\nif score >= 90:\n    print('You got an A')\nelif score >= 80:\n    print('You got a B')\nelif score >= 70:\n    print('You got a C')\nelse:\n    print('You failed.')\n",
+          "gotcha.py": "score = 95\n\nif score >= 90:\n    print('You got an A')\nelif score >= 80:\n    print('You got a B')\nelif score >= 60:\n    print('You passed')\n"
+        },
+        "terminalHistory": "$ python3 grades.py\nYou passed!\n$ python3 grades.py\n(no output)\n$ python3 grades.py\nYou failed.\n$ python3 grades.py\nYou passed!\n$ python3 grades.py\nYou got a B\n$ python3 grades.py\nYou got an A\n$ python3 grades.py\nYou failed.\n$ python3 gotcha.py\nYou passed\n$ python3 gotcha.py\nYou got an A\n"
+      }
+    },
+    {
+      "id": "section-5",
+      "label": "Putting It All Together",
+      "startTime": 310.4,
+      "endTime": 407.06,
+      "narration": "Now let's put everything together into a complete, five-grade checker. We start by adding the missing D grade as a new `elif` branch for scores of 60 and above, then simplify all the print messages down to single letters so the output is clean and concise. By ordering our conditions from highest to lowest — A down to D, with F as the final `else` — Python finds the right grade for any score on the first condition that fits. We test a range of scores from 95 down to 40, and each one lands exactly where we'd expect — rounding out everything you've learned about `if`, `elif`, and `else` in this lesson.",
+      "events": [
+        {
+          "t": 311.4,
+          "type": "edit",
+          "path": "grades.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 9,
+                "startCol": 1,
+                "endLine": 9,
+                "endCol": 1
+              },
+              "text": "elif score >= 60:\n    print('You got a D')\n"
+            }
+          ]
+        },
+        {
+          "t": 323.77,
+          "type": "edit",
+          "path": "grades.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 4,
+                "startCol": 1,
+                "endLine": 12,
+                "endCol": 25
+              },
+              "text": "    print('A')\nelif score >= 80:\n    print('B')\nelif score >= 70:\n    print('C')\nelif score >= 60:\n    print('D')\nelse:\n    print('F')"
+            }
+          ]
+        },
+        {
+          "t": 336.13,
+          "type": "edit",
+          "path": "grades.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 1,
+                "endCol": 11
+              },
+              "text": "score = 95"
+            }
+          ]
+        },
+        {
+          "t": 348.5,
+          "type": "edit",
+          "path": "grades.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 1,
+                "endCol": 11
+              },
+              "text": "score = 82"
+            }
+          ]
+        },
+        {
+          "t": 360.86,
+          "type": "edit",
+          "path": "grades.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 1,
+                "endCol": 11
+              },
+              "text": "score = 65"
+            }
+          ]
+        },
+        {
+          "t": 373.23,
+          "type": "edit",
+          "path": "grades.py",
+          "edits": [
+            {
+              "range": {
+                "startLine": 1,
+                "startCol": 1,
+                "endLine": 1,
+                "endCol": 11
+              },
+              "text": "score = 40"
+            }
+          ]
+        },
+        {
+          "t": 373.23,
+          "type": "terminal_input",
+          "command": "python3 grades.py"
+        },
+        {
+          "t": 374.73,
+          "type": "terminal_output",
+          "output": "A\n"
+        },
+        {
+          "t": 384.34,
+          "type": "terminal_input",
+          "command": "python3 grades.py"
+        },
+        {
+          "t": 385.84,
+          "type": "terminal_output",
+          "output": "B\n"
+        },
+        {
+          "t": 395.45,
+          "type": "terminal_input",
+          "command": "python3 grades.py"
+        },
+        {
+          "t": 396.95,
+          "type": "terminal_output",
+          "output": "D\n"
+        },
+        {
+          "t": 406.06,
+          "type": "terminal_input",
+          "command": "python3 grades.py"
+        },
+        {
+          "t": 406.56,
+          "type": "terminal_output",
+          "output": "F\n"
+        }
+      ],
+      "checkpoint": {
+        "files": {
+          "grades.py": "score = 40\n\nif score >= 90:\n    print('A')\nelif score >= 80:\n    print('B')\nelif score >= 70:\n    print('C')\nelif score >= 60:\n    print('D')\nelse:\n    print('F')\n",
+          "gotcha.py": "score = 95\n\nif score >= 90:\n    print('You got an A')\nelif score >= 80:\n    print('You got a B')\nelif score >= 60:\n    print('You passed')\n"
+        },
+        "terminalHistory": "$ python3 grades.py\nYou passed!\n$ python3 grades.py\n(no output)\n$ python3 grades.py\nYou failed.\n$ python3 grades.py\nYou passed!\n$ python3 grades.py\nYou got a B\n$ python3 grades.py\nYou got an A\n$ python3 grades.py\nYou failed.\n$ python3 gotcha.py\nYou passed\n$ python3 gotcha.py\nYou got an A\n$ python3 grades.py\nA\n$ python3 grades.py\nB\n$ python3 grades.py\nD\n$ python3 grades.py\nF\n"
+      }
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "runId": "25451174-564d-4a30-9d94-afc0d5039456",
+  "topic": "Making decisions with if, elif, and else statements",
+  "options": {
+    "language": "python",
+    "difficulty": "beginner",
+    "targetDuration": 5
+  },
+  "startedAt": "2026-04-17T13:44:32.999Z",
+  "status": "completed",
+  "steps": [
+    {
+      "agent": "Planner",
+      "action": "generate",
+      "round": 1,
+      "startedAt": "2026-04-17T13:44:32.999Z",
+      "completedAt": "2026-04-17T13:44:49.565Z"
+    },
+    {
+      "agent": "PlanReviewer",
+      "action": "review",
+      "round": 1,
+      "startedAt": "2026-04-17T13:44:49.565Z",
+      "approved": true,
+      "completedAt": "2026-04-17T13:45:07.930Z"
+    },
+    {
+      "agent": "Scripter",
+      "action": "generate",
+      "round": 1,
+      "startedAt": "2026-04-17T13:45:07.930Z",
+      "completedAt": "2026-04-17T13:45:38.338Z"
+    },
+    {
+      "agent": "ScriptReviewer",
+      "action": "review",
+      "round": 1,
+      "startedAt": "2026-04-17T13:45:38.339Z",
+      "approved": false,
+      "completedAt": "2026-04-17T13:45:59.942Z"
+    },
+    {
+      "agent": "Scripter",
+      "action": "revise",
+      "round": 2,
+      "startedAt": "2026-04-17T13:45:59.942Z",
+      "completedAt": "2026-04-17T13:46:26.809Z"
+    },
+    {
+      "agent": "ScriptReviewer",
+      "action": "review",
+      "round": 2,
+      "startedAt": "2026-04-17T13:46:26.809Z",
+      "approved": false,
+      "completedAt": "2026-04-17T13:46:51.518Z"
+    },
+    {
+      "agent": "Scripter",
+      "action": "revise",
+      "round": 3,
+      "startedAt": "2026-04-17T13:46:51.518Z",
+      "completedAt": "2026-04-17T13:47:28.835Z"
+    },
+    {
+      "agent": "ScriptReviewer",
+      "action": "review",
+      "round": 3,
+      "startedAt": "2026-04-17T13:47:28.836Z",
+      "approved": true,
+      "completedAt": "2026-04-17T13:47:52.218Z"
+    },
+    {
+      "agent": "Validator",
+      "action": "validateAll",
+      "round": 1,
+      "startedAt": "2026-04-17T13:47:52.218Z",
+      "completedAt": "2026-04-17T13:48:21.876Z"
+    },
+    {
+      "agent": "TTS",
+      "action": "generateAll",
+      "round": 1,
+      "startedAt": "2026-04-17T13:48:21.876Z",
+      "completedAt": "2026-04-17T13:48:58.331Z"
+    },
+    {
+      "agent": "Assembler",
+      "action": "assemble",
+      "round": 1,
+      "startedAt": "2026-04-17T13:48:58.331Z",
+      "completedAt": "2026-04-17T13:48:58.332Z"
+    },
+    {
+      "agent": "FinalReviewer",
+      "action": "review",
+      "round": 1,
+      "startedAt": "2026-04-17T13:48:58.332Z",
+      "approved": true,
+      "completedAt": "2026-04-17T13:49:17.272Z"
+    }
+  ],
+  "totalLLMCalls": 12,
+  "totalLLMTokens": {
+    "input": 0,
+    "output": 0
+  },
+  "completedAt": "2026-04-17T13:49:17.272Z"
+}
